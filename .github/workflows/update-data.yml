@@ -1,1 +1,44 @@
 
+name: Update biodiversity data
+
+on:
+  schedule:
+    - cron: '0 3 * * 1'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Fetch GBIF occurrence data
+        run: python3 scripts/fetch_gbif.py
+
+      - name: Fetch NCBI sequence data
+        run: python3 scripts/fetch_ncbi.py
+
+      - name: Analyse trends and build summary
+        run: python3 scripts/analyze_trends.py
+
+      - name: Commit and push updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "Automated data refresh: $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
+
