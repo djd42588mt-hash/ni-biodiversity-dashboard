@@ -1,0 +1,340 @@
+/* ============================================================
+   Northern Ireland Biodiversity Watch
+   Design concept: a herbarium/specimen drawer. Dark cabinet
+   background, warm parchment record-cards pinned on top,
+   ledger-style monospace for every number, field-guide serif
+   for headings.
+   ============================================================ */
+
+:root {
+  --bg-dark: #1B2420;
+  --bg-dark-alt: #212B26;
+  --bg-dark-line: rgba(237, 228, 211, 0.14);
+
+  --parchment: #F1E9D8;
+  --parchment-alt: #E7DCC4;
+  --parchment-line: rgba(42, 36, 32, 0.14);
+
+  --ink: #2A2420;
+  --ink-soft: #5B5148;
+  --cream: #EDE4D3;
+  --cream-soft: rgba(237, 228, 211, 0.72);
+
+  --green: #3B6B4F;
+  --green-deep: #24463A;
+  --amber: #D9932E;
+  --amber-deep: #A9691B;
+  --brick: #9C3F2C;
+  --brick-deep: #7A2F20;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  --radius: 3px;
+  --shadow-card: 0 1px 2px rgba(20, 16, 12, 0.08), 0 6px 16px rgba(20, 16, 12, 0.10);
+}
+
+* { box-sizing: border-box; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg-dark);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--green-deep); }
+a:hover { color: var(--amber-deep); }
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: 560; margin: 0; color: inherit; }
+
+.site-header {
+  background:
+    radial-gradient(1200px 400px at 15% -20%, rgba(217, 147, 46, 0.14), transparent 60%),
+    var(--bg-dark);
+  color: var(--cream);
+  padding: 2.6rem 1.25rem 2.2rem;
+  border-bottom: 3px solid var(--amber);
+}
+
+.header-inner { max-width: 960px; margin: 0 auto; }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin: 0 0 0.6rem;
+}
+
+.site-header h1 {
+  font-size: clamp(2.1rem, 6vw, 3.1rem);
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+}
+
+.subtitle {
+  max-width: 46em;
+  margin: 0.9rem 0 0;
+  color: var(--cream-soft);
+  font-size: 1rem;
+}
+
+.last-updated {
+  margin: 1.1rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--cream-soft);
+  border-top: 1px solid var(--bg-dark-line);
+  padding-top: 0.8rem;
+  display: inline-block;
+}
+
+main { max-width: 960px; margin: 0 auto; padding: 0 1.25rem 4rem; }
+
+.section-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.4rem; margin: 2.4rem 0 1rem; }
+.section-heading h2 { font-size: 1.4rem; color: var(--cream); }
+.section-note { margin: 0; font-size: 0.85rem; color: var(--cream-soft); }
+.section-note a { color: var(--amber); }
+
+.alerts-section, .search-section, .category-browser, .species-detail { color: var(--cream); }
+
+.pending-banner {
+  margin-top: 1.5rem;
+  background: var(--parchment);
+  border-left: 4px solid var(--amber);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  color: var(--ink);
+  box-shadow: var(--shadow-card);
+}
+.pending-banner p { margin: 0; font-size: 0.92rem; }
+
+.specimen-card {
+  position: relative;
+  background: var(--parchment);
+  border: 1px solid var(--parchment-line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 1.1rem 1.1rem 1rem 1.3rem;
+  color: var(--ink);
+}
+
+.specimen-card::before {
+  content: "";
+  position: absolute;
+  top: 0.7rem;
+  left: 0.45rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--amber-deep);
+  box-shadow: 0 0 0 2px rgba(169, 105, 27, 0.18);
+}
+
+.specimen-card.tone-decline { border-left: 4px solid var(--brick); }
+.specimen-card.tone-moderate { border-left: 4px solid var(--amber-deep); }
+.specimen-card.tone-increase { border-left: 4px solid var(--green); }
+.specimen-card.tone-alert { border-left: 4px solid var(--brick); background: #F4E4D9; }
+.specimen-card.tone-neutral { border-left: 4px solid #9A9284; }
+
+.alerts-rail {
+  display: flex;
+  gap: 0.9rem;
+  overflow-x: auto;
+  padding: 0.3rem 0.1rem 0.9rem;
+  scrollbar-width: thin;
+}
+
+.alert-card {
+  flex: 0 0 auto;
+  width: 250px;
+  scroll-snap-align: start;
+}
+
+.alerts-rail { scroll-snap-type: x proximity; }
+
+.alert-card .alert-severity {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--brick-deep);
+  margin: 0 0 0.35rem;
+}
+.alert-card.tone-moderate .alert-severity { color: var(--amber-deep); }
+
+.alert-card h3 { font-size: 1rem; margin-bottom: 0.15rem; }
+.alert-card .sci-name { font-style: italic; color: var(--ink-soft); font-size: 0.82rem; display: block; margin-bottom: 0.5rem; }
+.alert-card p.alert-msg { margin: 0; font-size: 0.88rem; }
+
+.muted-note { color: var(--cream-soft); font-size: 0.9rem; font-style: italic; }
+
+.search-section { margin-top: 2.6rem; }
+.search-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.5rem;
+}
+
+#speciesSearch {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--bg-dark-line);
+  background: var(--parchment);
+  color: var(--ink);
+}
+#speciesSearch:focus {
+  outline: 3px solid var(--amber);
+  outline-offset: 1px;
+}
+#speciesSearch::placeholder { color: var(--ink-soft); opacity: 0.7; }
+
+.search-hint { margin: 0.5rem 0 0; font-size: 0.8rem; color: var(--cream-soft); }
+
+.category-group { margin-top: 2.2rem; }
+
+.category-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--amber);
+  border-bottom: 1px solid var(--bg-dark-line);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.species-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.8rem;
+}
+
+.species-card {
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.species-card:hover, .species-card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(20,16,12,0.10), 0 10px 22px rgba(20,16,12,0.14);
+  outline: none;
+}
+.species-card:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+.species-card h3 { font-size: 1rem; margin-bottom: 0.1rem; }
+.species-card .sci-name { display: block; font-style: italic; color: var(--ink-soft); font-size: 0.8rem; margin-bottom: 0.55rem; }
+.species-card .card-status { font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-soft); }
+
+.no-results { color: var(--cream-soft); font-style: italic; padding: 1rem 0; }
+
+.back-link {
+  background: none;
+  border: none;
+  color: var(--amber);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0.4rem 0;
+  margin-top: 1.6rem;
+}
+.back-link:hover { color: var(--cream); }
+
+.detail-card { margin-top: 1rem; }
+
+.detail-heading .cat-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--green-deep);
+  color: var(--cream);
+  padding: 0.2rem 0.5rem;
+  border-radius: 2px;
+  margin-bottom: 0.6rem;
+}
+
+.detail-heading h2 { font-size: 1.6rem; color: var(--ink); margin-bottom: 0.1rem; }
+.detail-heading .sci-name { font-style: italic; color: var(--ink-soft); font-size: 1rem; }
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.7rem;
+  margin: 1.2rem 0;
+}
+.stat-box {
+  background: var(--parchment-alt);
+  border-radius: var(--radius);
+  padding: 0.7rem 0.85rem;
+}
+.stat-box .stat-label { font-family: var(--font-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft); }
+.stat-box .stat-value { font-family: var(--font-mono); font-size: 1.3rem; font-weight: 600; margin-top: 0.15rem; }
+.stat-value.tone-decline { color: var(--brick-deep); }
+.stat-value.tone-moderate { color: var(--amber-deep); }
+.stat-value.tone-increase { color: var(--green-deep); }
+
+.chart-block { margin: 1.6rem 0; }
+.chart-block h3 { font-size: 1.02rem; margin-bottom: 0.2rem; }
+.chart-caption { font-size: 0.82rem; color: var(--ink-soft); margin: 0.2rem 0 0.7rem; }
+.chart-wrap { position: relative; height: 240px; }
+
+.note-line { font-size: 0.85rem; color: var(--ink-soft); border-top: 1px dashed var(--parchment-line); padding-top: 0.7rem; margin-top: 1rem; }
+
+.methodology {
+  margin-top: 3rem;
+  background: var(--parchment);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.4rem;
+  color: var(--ink);
+  box-shadow: var(--shadow-card);
+}
+.methodology h2 { font-size: 1.3rem; margin-bottom: 1rem; }
+.methodology-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.1rem; }
+.method-card h3 { font-size: 0.98rem; margin-bottom: 0.35rem; }
+.method-card p { margin: 0; font-size: 0.87rem; color: var(--ink-soft); }
+.method-card a { color: var(--green-deep); }
+
+.site-footer {
+  border-top: 1px solid var(--bg-dark-line);
+  color: var(--cream-soft);
+  font-size: 0.82rem;
+  text-align: center;
+  padding: 1.6rem 1.25rem 2.4rem;
+}
+.site-footer a { color: var(--amber); }
+
+@media (max-width: 480px) {
+  .site-header { padding: 2rem 1rem 1.6rem; }
+  main { padding: 0 1rem 3rem; }
+  .alert-card { width: 220px; }
+}
+
+.specimen-card, .species-card {
+  animation: cardIn 0.35s ease both;
+}
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
