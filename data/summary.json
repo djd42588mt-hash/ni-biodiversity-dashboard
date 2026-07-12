@@ -1,12 +1,19 @@
 {
-  "generatedAt": "2026-07-12T09:21:08Z",
+  "generatedAt": "2026-07-12T09:55:00Z",
   "currentYear": 2026,
   "speciesCount": 31,
   "overview": {
-    "improving": 17,
-    "declining": 2,
-    "stable": 0
+    "improving": 18,
+    "declining": 0,
+    "stable": 1
   },
+  "groupOverview": {
+    "improving": 0,
+    "declining": 0,
+    "stable": 0,
+    "groupsWithData": 0
+  },
+  "groupTrends": {},
   "alerts": [
     {
       "scientificName": "Phytophthora ramorum",
@@ -77,8 +84,8 @@
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1984-2025 (+5825%)",
-        "pctChange": 5825,
+        "label": "Improving since 1984-2025 (+7750%)",
+        "pctChange": 7750,
         "spanYears": "1984-2025"
       },
       "sequenceTrend": {
@@ -102,8 +109,8 @@
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1894-2025 (+11433%)",
-        "pctChange": 11433,
+        "label": "Improving since 1894-2025 (+13000%)",
+        "pctChange": 13000,
         "spanYears": "1894-2025"
       },
       "sequenceTrend": {
@@ -127,8 +134,8 @@
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1884-2025 (+44667%)",
-        "pctChange": 44667,
+        "label": "Improving since 1884-2025 (+44650%)",
+        "pctChange": 44650,
         "spanYears": "1884-2025"
       },
       "sequenceTrend": {
@@ -152,8 +159,8 @@
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1894-2025 (+28067%)",
-        "pctChange": 28067,
+        "label": "Improving since 1894-2025 (+29150%)",
+        "pctChange": 29150,
         "spanYears": "1894-2025"
       },
       "sequenceTrend": {
@@ -177,8 +184,8 @@
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1894-2025 (+2280%)",
-        "pctChange": 2280,
+        "label": "Improving since 1894-2025 (+2500%)",
+        "pctChange": 2500,
         "spanYears": "1894-2025"
       },
       "sequenceTrend": {
@@ -302,8 +309,8 @@
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 2007-2025 (+189%)",
-        "pctChange": 189,
+        "label": "Improving since 2007-2025 (+475%)",
+        "pctChange": 475,
         "spanYears": "2007-2025"
       },
       "sequenceTrend": {
@@ -467,8 +474,8 @@
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1927-2025 (+57067%)",
-        "pctChange": 57067,
+        "label": "Improving since 1927-2025 (+47550%)",
+        "pctChange": 47550,
         "spanYears": "1927-2025"
       },
       "sequenceTrend": {
@@ -492,8 +499,8 @@
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1909-2024 (+350%)",
-        "pctChange": 350,
+        "label": "Improving since 1909-2024 (+260%)",
+        "pctChange": 260,
         "spanYears": "1909-2024"
       },
       "sequenceTrend": {
@@ -517,8 +524,8 @@
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1967-2025 (+44900%)",
-        "pctChange": 44900,
+        "label": "Improving since 1967-2025 (+60900%)",
+        "pctChange": 60900,
         "spanYears": "1967-2025"
       },
       "sequenceTrend": {
@@ -541,9 +548,9 @@
         "currentYearToDateCount": null
       },
       "longTermTrend": {
-        "status": "declining",
-        "label": "Declining since 1963-2025 (-64%)",
-        "pctChange": -64,
+        "status": "no_clear_change",
+        "label": "No clear change since 1963-2025",
+        "pctChange": 0,
         "spanYears": "1963-2025"
       },
       "sequenceTrend": {
@@ -567,8 +574,8 @@
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1966-2025 (+300%)",
-        "pctChange": 300,
+        "label": "Improving since 1966-2025 (+233%)",
+        "pctChange": 233,
         "spanYears": "1966-2025"
       },
       "sequenceTrend": {
@@ -592,8 +599,8 @@
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1968-2025 (+3507%)",
-        "pctChange": 3507,
+        "label": "Improving since 1968-2025 (+2383%)",
+        "pctChange": 2383,
         "spanYears": "1968-2025"
       },
       "sequenceTrend": {
@@ -617,8 +624,8 @@
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1990-2025 (+10830%)",
-        "pctChange": 10830,
+        "label": "Improving since 1990-2025 (+9550%)",
+        "pctChange": 9550,
         "spanYears": "1990-2025"
       },
       "sequenceTrend": {
@@ -642,8 +649,8 @@
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1968-2025 (+1633%)",
-        "pctChange": 1633,
+        "label": "Improving since 1968-2025 (+1400%)",
+        "pctChange": 1400,
         "spanYears": "1968-2025"
       },
       "sequenceTrend": {
@@ -667,8 +674,8 @@
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 2001-2025 (+10300%)",
-        "pctChange": 10300,
+        "label": "Improving since 2001-2025 (+9650%)",
+        "pctChange": 9650,
         "spanYears": "2001-2025"
       },
       "sequenceTrend": {
@@ -691,9 +698,9 @@
         "currentYearToDateCount": 23
       },
       "longTermTrend": {
-        "status": "declining",
-        "label": "Declining since 1950-2025 (-76%)",
-        "pctChange": -76,
+        "status": "improving",
+        "label": "Improving since 1950-2025 (+645%)",
+        "pctChange": 645,
         "spanYears": "1950-2025"
       },
       "sequenceTrend": {
@@ -717,8 +724,8 @@
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1908-2025 (+6950%)",
-        "pctChange": 6950,
+        "label": "Improving since 1908-2025 (+7457%)",
+        "pctChange": 7457,
         "spanYears": "1908-2025"
       },
       "sequenceTrend": {
@@ -742,8 +749,8 @@
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1856-2025 (+7000%)",
-        "pctChange": 7000,
+        "label": "Improving since 1856-2025 (+8933%)",
+        "pctChange": 8933,
         "spanYears": "1856-2025"
       },
       "sequenceTrend": {
@@ -767,8 +774,8 @@
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1856-2025 (+1500%)",
-        "pctChange": 1500,
+        "label": "Improving since 1856-2025 (+1420%)",
+        "pctChange": 1420,
         "spanYears": "1856-2025"
       },
       "sequenceTrend": {
