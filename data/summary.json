@@ -1,0 +1,536 @@
+{
+  "generatedAt": "2026-07-12T08:18:11Z",
+  "currentYear": 2026,
+  "speciesCount": 27,
+  "alerts": [
+    {
+      "scientificName": "Phytophthora ramorum",
+      "commonName": "Sudden oak death pathogen",
+      "severity": "high",
+      "message": "Recorded observations down 71% vs the 2-year average"
+    },
+    {
+      "scientificName": "Numenius arquata",
+      "commonName": "Eurasian curlew",
+      "severity": "high",
+      "message": "Recorded observations down 70% vs the 5-year average"
+    },
+    {
+      "scientificName": "Hirundo rustica",
+      "commonName": "Barn swallow",
+      "severity": "high",
+      "message": "Recorded observations down 78% vs the 5-year average"
+    },
+    {
+      "scientificName": "Sciurus carolinensis",
+      "commonName": "Grey squirrel",
+      "severity": "moderate",
+      "message": "Recorded observations down 47% vs the 5-year average"
+    },
+    {
+      "scientificName": "Lepus timidus",
+      "commonName": "Irish hare",
+      "severity": "moderate",
+      "message": "Recorded observations down 47% vs the 5-year average"
+    },
+    {
+      "scientificName": "Crex crex",
+      "commonName": "Corncrake",
+      "severity": "moderate",
+      "message": "Recorded observations down 42% vs the 5-year average"
+    },
+    {
+      "scientificName": "Erinaceus europaeus",
+      "commonName": "European hedgehog",
+      "severity": "moderate",
+      "message": "Recorded observations down 32% vs the 5-year average"
+    }
+  ],
+  "species": {
+    "Apis mellifera": {
+      "commonName": "Honey bee",
+      "category": "Pollinators",
+      "occurrenceTrend": {
+        "status": "stable",
+        "label": "Recorded observations broadly stable",
+        "pctChange": 21,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 66,
+        "currentYearToDateCount": 25
+      },
+      "sequenceTrend": {
+        "status": "steady",
+        "label": "Sequencing activity continuing at a steady pace"
+      },
+      "totalRecords": 571,
+      "totalSequences": 398674,
+      "niOriginSequences": 1
+    },
+    "Bombus terrestris": {
+      "commonName": "Buff-tailed bumblebee",
+      "category": "Pollinators",
+      "occurrenceTrend": {
+        "status": "notable_increase",
+        "label": "Recorded observations up 78% vs the 5-year average",
+        "pctChange": 78,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 151,
+        "currentYearToDateCount": 20
+      },
+      "sequenceTrend": {
+        "status": "steady",
+        "label": "Sequencing activity continuing at a steady pace"
+      },
+      "totalRecords": 1495,
+      "totalSequences": 303494,
+      "niOriginSequences": 0
+    },
+    "Bombus pascuorum": {
+      "commonName": "Common carder bee",
+      "category": "Pollinators",
+      "occurrenceTrend": {
+        "status": "notable_increase",
+        "label": "Recorded observations up 64% vs the 5-year average",
+        "pctChange": 64,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 508,
+        "currentYearToDateCount": 94
+      },
+      "sequenceTrend": {
+        "status": "accelerating",
+        "label": "Sequencing activity has notably picked up recently"
+      },
+      "totalRecords": 4270,
+      "totalSequences": 25481,
+      "niOriginSequences": 0
+    },
+    "Bombus lucorum": {
+      "commonName": "White-tailed bumblebee",
+      "category": "Pollinators",
+      "occurrenceTrend": {
+        "status": "notable_increase",
+        "label": "Recorded observations up 57% vs the 5-year average",
+        "pctChange": 57,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 334,
+        "currentYearToDateCount": 6
+      },
+      "sequenceTrend": {
+        "status": "steady",
+        "label": "Sequencing activity continuing at a steady pace"
+      },
+      "totalRecords": 3531,
+      "totalSequences": 1105,
+      "niOriginSequences": 0
+    },
+    "Bombus lapidarius": {
+      "commonName": "Red-tailed bumblebee",
+      "category": "Pollinators",
+      "occurrenceTrend": {
+        "status": "stable",
+        "label": "Recorded observations broadly stable",
+        "pctChange": 26,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 50,
+        "currentYearToDateCount": 10
+      },
+      "sequenceTrend": {
+        "status": "steady",
+        "label": "Sequencing activity continuing at a steady pace"
+      },
+      "totalRecords": 665,
+      "totalSequences": 1464,
+      "niOriginSequences": 0
+    },
+    "Varroa destructor": {
+      "commonName": "Varroa mite",
+      "category": "Bee pests & pathogens",
+      "occurrenceTrend": {
+        "status": "insufficient_data",
+        "label": "Not enough complete years of data yet to assess a trend",
+        "pctChange": null,
+        "latestCompleteYear": null,
+        "latestCompleteYearCount": null,
+        "currentYearToDateCount": null
+      },
+      "sequenceTrend": {
+        "status": "steady",
+        "label": "Sequencing activity continuing at a steady pace"
+      },
+      "totalRecords": 0,
+      "totalSequences": 39150,
+      "niOriginSequences": 0
+    },
+    "Paenibacillus larvae": {
+      "commonName": "American foulbrood (bacterium)",
+      "category": "Bee pests & pathogens",
+      "occurrenceTrend": null,
+      "sequenceTrend": {
+        "status": "accelerating",
+        "label": "Sequencing activity has notably picked up recently"
+      },
+      "totalRecords": null,
+      "totalSequences": 14926,
+      "niOriginSequences": 0
+    },
+    "Melissococcus plutonius": {
+      "commonName": "European foulbrood (bacterium)",
+      "category": "Bee pests & pathogens",
+      "occurrenceTrend": null,
+      "sequenceTrend": {
+        "status": "accelerating",
+        "label": "Sequencing activity has notably picked up recently"
+      },
+      "totalRecords": null,
+      "totalSequences": 8040,
+      "niOriginSequences": 0
+    },
+    "Nosema apis": {
+      "commonName": "Nosema apis",
+      "category": "Bee pests & pathogens",
+      "occurrenceTrend": null,
+      "sequenceTrend": {
+        "status": "accelerating",
+        "label": "Sequencing activity has notably picked up recently"
+      },
+      "totalRecords": null,
+      "totalSequences": 1030,
+      "niOriginSequences": 0
+    },
+    "Nosema ceranae": {
+      "commonName": "Nosema ceranae",
+      "category": "Bee pests & pathogens",
+      "occurrenceTrend": null,
+      "sequenceTrend": {
+        "status": "steady",
+        "label": "Sequencing activity continuing at a steady pace"
+      },
+      "totalRecords": null,
+      "totalSequences": 8404,
+      "niOriginSequences": 0
+    },
+    "Vespa velutina": {
+      "commonName": "Asian hornet",
+      "category": "Invasive species",
+      "occurrenceTrend": {
+        "status": "watch_no_detection",
+        "label": "No NI records to date - remains on the biosecurity watch list",
+        "pctChange": null,
+        "latestCompleteYear": null,
+        "latestCompleteYearCount": 0,
+        "currentYearToDateCount": null
+      },
+      "sequenceTrend": {
+        "status": "steady",
+        "label": "Sequencing activity continuing at a steady pace"
+      },
+      "totalRecords": 0,
+      "totalSequences": 34238,
+      "niOriginSequences": 0
+    },
+    "Ips typographus": {
+      "commonName": "European spruce bark beetle",
+      "category": "Invasive species",
+      "occurrenceTrend": {
+        "status": "watch_no_detection",
+        "label": "No NI records to date - remains on the biosecurity watch list",
+        "pctChange": null,
+        "latestCompleteYear": null,
+        "latestCompleteYearCount": 0,
+        "currentYearToDateCount": null
+      },
+      "sequenceTrend": {
+        "status": "steady",
+        "label": "Sequencing activity continuing at a steady pace"
+      },
+      "totalRecords": 0,
+      "totalSequences": 44187,
+      "niOriginSequences": 0
+    },
+    "Harmonia axyridis": {
+      "commonName": "Harlequin ladybird",
+      "category": "Invasive species",
+      "occurrenceTrend": {
+        "status": "notable_increase",
+        "label": "Recorded observations up 817% vs the 5-year average",
+        "pctChange": 817,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 22,
+        "currentYearToDateCount": 1
+      },
+      "sequenceTrend": {
+        "status": "steady",
+        "label": "Sequencing activity continuing at a steady pace"
+      },
+      "totalRecords": 111,
+      "totalSequences": 29410,
+      "niOriginSequences": 0
+    },
+    "Sciurus carolinensis": {
+      "commonName": "Grey squirrel",
+      "category": "Invasive species",
+      "occurrenceTrend": {
+        "status": "moderate_decline",
+        "label": "Recorded observations down 47% vs the 5-year average",
+        "pctChange": -47,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 133,
+        "currentYearToDateCount": 49
+      },
+      "sequenceTrend": {
+        "status": "steady",
+        "label": "Sequencing activity continuing at a steady pace"
+      },
+      "totalRecords": 6445,
+      "totalSequences": 60065,
+      "niOriginSequences": 0
+    },
+    "Hymenoscyphus fraxineus": {
+      "commonName": "Ash dieback fungus",
+      "category": "Forest health",
+      "occurrenceTrend": {
+        "status": "insufficient_data",
+        "label": "Not enough complete years of data yet to assess a trend",
+        "pctChange": null,
+        "latestCompleteYear": "2024",
+        "latestCompleteYearCount": 1,
+        "currentYearToDateCount": 1
+      },
+      "sequenceTrend": {
+        "status": "steady",
+        "label": "Sequencing activity continuing at a steady pace"
+      },
+      "totalRecords": 2,
+      "totalSequences": 1738,
+      "niOriginSequences": 0
+    },
+    "Phytophthora ramorum": {
+      "commonName": "Sudden oak death pathogen",
+      "category": "Forest health",
+      "occurrenceTrend": {
+        "status": "significant_decline",
+        "label": "Recorded observations down 71% vs the 2-year average",
+        "pctChange": -71,
+        "latestCompleteYear": "2024",
+        "latestCompleteYearCount": 1,
+        "currentYearToDateCount": null
+      },
+      "sequenceTrend": {
+        "status": "accelerating",
+        "label": "Sequencing activity has notably picked up recently"
+      },
+      "totalRecords": 8,
+      "totalSequences": 28377,
+      "niOriginSequences": 7
+    },
+    "Dendroctonus micans": {
+      "commonName": "Great spruce bark beetle",
+      "category": "Forest health",
+      "occurrenceTrend": {
+        "status": "insufficient_data",
+        "label": "Not enough complete years of data yet to assess a trend",
+        "pctChange": null,
+        "latestCompleteYear": null,
+        "latestCompleteYearCount": null,
+        "currentYearToDateCount": null
+      },
+      "sequenceTrend": {
+        "status": "stalled",
+        "label": "No new GenBank sequences in the last 3 complete years"
+      },
+      "totalRecords": 0,
+      "totalSequences": 52,
+      "niOriginSequences": 0
+    },
+    "Lepus timidus": {
+      "commonName": "Irish hare",
+      "category": "Priority species",
+      "occurrenceTrend": {
+        "status": "moderate_decline",
+        "label": "Recorded observations down 47% vs the 5-year average",
+        "pctChange": -47,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 15,
+        "currentYearToDateCount": 3
+      },
+      "sequenceTrend": {
+        "status": "steady",
+        "label": "Sequencing activity continuing at a steady pace"
+      },
+      "totalRecords": 2484,
+      "totalSequences": 1344,
+      "niOriginSequences": 0
+    },
+    "Sciurus vulgaris": {
+      "commonName": "Red squirrel",
+      "category": "Priority species",
+      "occurrenceTrend": {
+        "status": "stable",
+        "label": "Recorded observations broadly stable",
+        "pctChange": 15,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 440,
+        "currentYearToDateCount": 18
+      },
+      "sequenceTrend": {
+        "status": "steady",
+        "label": "Sequencing activity continuing at a steady pace"
+      },
+      "totalRecords": 5336,
+      "totalSequences": 67606,
+      "niOriginSequences": 0
+    },
+    "Numenius arquata": {
+      "commonName": "Eurasian curlew",
+      "category": "Priority species",
+      "occurrenceTrend": {
+        "status": "significant_decline",
+        "label": "Recorded observations down 70% vs the 5-year average",
+        "pctChange": -70,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 134,
+        "currentYearToDateCount": 7
+      },
+      "sequenceTrend": {
+        "status": "accelerating",
+        "label": "Sequencing activity has notably picked up recently"
+      },
+      "totalRecords": 4322,
+      "totalSequences": 27941,
+      "niOriginSequences": 0
+    },
+    "Crex crex": {
+      "commonName": "Corncrake",
+      "category": "Priority species",
+      "occurrenceTrend": {
+        "status": "moderate_decline",
+        "label": "Recorded observations down 42% vs the 5-year average",
+        "pctChange": -42,
+        "latestCompleteYear": "2024",
+        "latestCompleteYearCount": 6,
+        "currentYearToDateCount": 2
+      },
+      "sequenceTrend": {
+        "status": "accelerating",
+        "label": "Sequencing activity has notably picked up recently"
+      },
+      "totalRecords": 273,
+      "totalSequences": 21,
+      "niOriginSequences": 0
+    },
+    "Martes martes": {
+      "commonName": "Pine marten",
+      "category": "Priority species",
+      "occurrenceTrend": {
+        "status": "stable",
+        "label": "Recorded observations broadly stable",
+        "pctChange": 40,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 204,
+        "currentYearToDateCount": 2
+      },
+      "sequenceTrend": {
+        "status": "accelerating",
+        "label": "Sequencing activity has notably picked up recently"
+      },
+      "totalRecords": 1765,
+      "totalSequences": 40224,
+      "niOriginSequences": 0
+    },
+    "Lutra lutra": {
+      "commonName": "Eurasian otter",
+      "category": "Priority species",
+      "occurrenceTrend": {
+        "status": "notable_increase",
+        "label": "Recorded observations up 146% vs the 5-year average",
+        "pctChange": 146,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 61,
+        "currentYearToDateCount": 23
+      },
+      "sequenceTrend": {
+        "status": "steady",
+        "label": "Sequencing activity continuing at a steady pace"
+      },
+      "totalRecords": 2826,
+      "totalSequences": 68002,
+      "niOriginSequences": 0
+    },
+    "Hirundo rustica": {
+      "commonName": "Barn swallow",
+      "category": "Indicator species",
+      "occurrenceTrend": {
+        "status": "significant_decline",
+        "label": "Recorded observations down 78% vs the 5-year average",
+        "pctChange": -78,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 138,
+        "currentYearToDateCount": 38
+      },
+      "sequenceTrend": {
+        "status": "steady",
+        "label": "Sequencing activity continuing at a steady pace"
+      },
+      "totalRecords": 5170,
+      "totalSequences": 44528,
+      "niOriginSequences": 0
+    },
+    "Erinaceus europaeus": {
+      "commonName": "European hedgehog",
+      "category": "Indicator species",
+      "occurrenceTrend": {
+        "status": "moderate_decline",
+        "label": "Recorded observations down 32% vs the 5-year average",
+        "pctChange": -32,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 251,
+        "currentYearToDateCount": 7
+      },
+      "sequenceTrend": {
+        "status": "accelerating",
+        "label": "Sequencing activity has notably picked up recently"
+      },
+      "totalRecords": 3142,
+      "totalSequences": 254591,
+      "niOriginSequences": 0
+    },
+    "Rana temporaria": {
+      "commonName": "Common frog",
+      "category": "Indicator species",
+      "occurrenceTrend": {
+        "status": "notable_increase",
+        "label": "Recorded observations up 90% vs the 5-year average",
+        "pctChange": 90,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 166,
+        "currentYearToDateCount": 101
+      },
+      "sequenceTrend": {
+        "status": "steady",
+        "label": "Sequencing activity continuing at a steady pace"
+      },
+      "totalRecords": 1349,
+      "totalSequences": 55001,
+      "niOriginSequences": 0
+    },
+    "Lissotriton vulgaris": {
+      "commonName": "Smooth newt",
+      "category": "Indicator species",
+      "occurrenceTrend": {
+        "status": "stable",
+        "label": "Recorded observations broadly stable",
+        "pctChange": 37,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 44,
+        "currentYearToDateCount": 25
+      },
+      "sequenceTrend": {
+        "status": "steady",
+        "label": "Sequencing activity continuing at a steady pace"
+      },
+      "totalRecords": 467,
+      "totalSequences": 1700,
+      "niOriginSequences": 0
+    }
+  }
+}
