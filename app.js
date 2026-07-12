@@ -13,8 +13,10 @@
     summary: null,
     occData: null,
     seqData: null,
+    groupTotals: null,
     compareGroup: null,
     compareSelected: new Set(),
+    mapGroup: null,
   };
 
   const GROUP_PALETTE = {
@@ -212,7 +214,35 @@
     container.appendChild(svg);
   }
 
-  // ---------------- Headline KPIs ----------------
+  /** Coarse grid heatmap: cells shaded by relative count, native tooltips. */
+  function renderGridHeatmap(container, grid, color, opts) {
+    opts = opts || {};
+    const rows = grid.length, cols = grid[0] ? grid[0].length : 0;
+    const W = 500, H = opts.height || 380;
+    const pad = 10;
+    const cellW = (W - pad * 2) / cols, cellH = (H - pad * 2) / rows;
+    const maxVal = Math.max(1, ...grid.flat());
+    const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Grid density map of Northern Ireland" });
+    svg.appendChild(svgEl("rect", { x: pad, y: pad, width: W - pad * 2, height: H - pad * 2, fill: "none", stroke: "rgba(42,36,32,0.18)", "stroke-width": 1 }));
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const v = grid[r][c] || 0;
+        const alpha = v === 0 ? 0.04 : Math.min(0.92, 0.14 + (v / maxVal) * 0.8);
+        const rect = svgEl("rect", {
+          x: (pad + c * cellW).toFixed(2), y: (pad + r * cellH).toFixed(2),
+          width: cellW.toFixed(2), height: cellH.toFixed(2),
+          fill: color, "fill-opacity": alpha.toFixed(2),
+          stroke: "rgba(241,233,216,0.5)", "stroke-width": 0.5,
+        });
+        rect.appendChild(svgTitle(`Grid cell (row ${r + 1}, col ${c + 1}): ${v} record${v === 1 ? "" : "s"} in sample`));
+        svg.appendChild(rect);
+      }
+    }
+    container.innerHTML = "";
+    container.appendChild(svg);
+  }
+
+
 
   function renderKPIs() {
     const kpi = document.getElementById("kpiStrip");
@@ -231,18 +261,36 @@
   // ---------------- Long-term signal (executive summary) ----------------
 
   function renderSignal() {
+    // Curated watchlist signal (secondary panel)
     const el = document.getElementById("signalBars");
     const ov = state.summary.overview || { improving: 0, declining: 0, stable: 0 };
     const total = ov.improving + ov.declining + ov.stable;
+    document.getElementById("curatedCountPlaceholder").textContent = `this dashboard's ${(state.config.species || []).length}`;
     if (!state.summary.generatedAt || !total) {
-      el.innerHTML = `<p class="no-results">The long-term signal will appear once enough survey history has accumulated (needs several years of complete data per species).</p>`;
+      el.innerHTML = `<p class="no-results">Will appear once enough survey history has accumulated.</p>`;
       return;
     }
+    renderSignalBarsInto(el, ov, "improving long-term", "declining long-term", "no clear long-term change");
+  }
+
+  function renderSignalGroups() {
+    const el = document.getElementById("signalBarsGroups");
+    const ov = state.summary.groupOverview || { improving: 0, declining: 0, stable: 0, groupsWithData: 0 };
+    const total = ov.improving + ov.declining + ov.stable;
+    if (!state.summary.generatedAt || !total) {
+      el.innerHTML = `<p class="no-results">The comprehensive long-term signal will appear once the group-wide GBIF survey has run and accumulated enough history.</p>`;
+      return;
+    }
+    renderSignalBarsInto(el, ov, "groups improving long-term", "groups declining long-term", "groups with no clear change");
+  }
+
+  function renderSignalBarsInto(el, ov, labelImp, labelDec, labelStable) {
+    const total = ov.improving + ov.declining + ov.stable;
     const pct = (n) => (total ? Math.round((n / total) * 100) : 0);
     el.innerHTML = `
-      <div class="signal-stat improving"><div class="signal-count">${ov.improving}</div><div class="signal-label">improving long-term</div></div>
-      <div class="signal-stat declining"><div class="signal-count">${ov.declining}</div><div class="signal-label">declining long-term</div></div>
-      <div class="signal-stat stable"><div class="signal-count">${ov.stable}</div><div class="signal-label">no clear long-term change</div></div>
+      <div class="signal-stat improving"><div class="signal-count">${ov.improving}</div><div class="signal-label">${labelImp}</div></div>
+      <div class="signal-stat declining"><div class="signal-count">${ov.declining}</div><div class="signal-label">${labelDec}</div></div>
+      <div class="signal-stat stable"><div class="signal-count">${ov.stable}</div><div class="signal-label">${labelStable}</div></div>
     `;
     const track = document.createElement("div");
     track.className = "signal-track";
@@ -299,48 +347,107 @@
     return groups;
   }
 
-  function classifyGroupTrend(byYear, currentYear) {
-    const complete = {};
-    Object.entries(byYear).forEach(([y, c]) => { if (c != null && /^\d+$/.test(y) && Number(y) < currentYear) complete[y] = c; });
-    const years = Object.keys(complete).sort();
-    if (years.length < 2) return { label: "Not enough complete years yet" };
-    const latestYear = years[years.length - 1];
-    const latestCount = complete[latestYear];
-    const baselineYears = years.slice(Math.max(0, years.length - 6), years.length - 1);
-    const baselineAvg = baselineYears.reduce((s, y) => s + complete[y], 0) / (baselineYears.length || 1);
-    if (!baselineAvg) return { label: latestCount > 0 ? "New records after a baseline of none" : "No records yet" };
-    const pct = Math.round(((latestCount - baselineAvg) / baselineAvg) * 100);
-    if (pct <= -25) return { label: `Down ${Math.abs(pct)}% vs the ${baselineYears.length}-year average` };
-    if (pct >= 50) return { label: `Up ${pct}% vs the ${baselineYears.length}-year average` };
-    return { label: "Broadly stable" };
+  function buildGroupSeqAggregates() {
+    // Sequencing effort can only be tracked for the curated species (NCBI has no
+    // NI-specific spatial concept), so this deliberately uses the curated list.
+    const groups = {};
+    (state.config.species || []).forEach((sp) => {
+      const cat = sp.category || "Other";
+      if (!groups[cat]) groups[cat] = { byYear: {} };
+      const seq = state.seqData.species && state.seqData.species[sp.scientificName];
+      if (seq) {
+        Object.entries(seq.byYear || {}).forEach(([y, c]) => { groups[cat].byYear[y] = (groups[cat].byYear[y] || 0) + (c || 0); });
+      }
+    });
+    return groups;
+  }
+
+  function groupToneClass(groupName) {
+    const gt = state.summary.groupTrends && state.summary.groupTrends[groupName];
+    if (!gt || !gt.shortTermTrend || gt.error) return "tone-neutral";
+    return toneClass(gt.shortTermTrend.status);
   }
 
   function renderGroups() {
     const grid = document.getElementById("groupsGrid");
     grid.innerHTML = "";
-    if (!state.occData || !state.occData.generatedAt) {
-      grid.innerHTML = `<p class="no-results">Group charts will appear here once the first automated survey has run.</p>`;
+    const groupTotals = (state.groupTotals && state.groupTotals.groups) || {};
+    if (!state.groupTotals || !state.groupTotals.generatedAt || !Object.keys(groupTotals).length) {
+      grid.innerHTML = `<p class="no-results">Comprehensive group charts will appear here once the first automated survey has run.</p>`;
       return;
     }
-    const groups = buildGroupAggregates();
     const currentYear = state.summary.currentYear || new Date().getFullYear();
-    Object.keys(groups).sort().forEach((groupName) => {
-      const g = groups[groupName];
-      const trend = classifyGroupTrend(g.byYear, currentYear);
+    const seqGroups = buildGroupSeqAggregates();
+
+    Object.keys(groupTotals).sort().forEach((groupName) => {
+      const g = groupTotals[groupName];
       const color = GROUP_PALETTE[groupName] || DEFAULT_COLOR;
       const card = document.createElement("div");
-      card.className = "specimen-card group-card";
+      card.className = `specimen-card group-card ${groupToneClass(groupName)}`;
+
+      if (g.error) {
+        card.innerHTML = `<h3>${escapeHtml(groupName)}</h3><p class="no-results">Could not fetch this group's data last run (${escapeHtml(g.error)}). Will retry next scheduled run.</p>`;
+        grid.appendChild(card);
+        return;
+      }
+
+      const gt = (state.summary.groupTrends && state.summary.groupTrends[groupName]) || {};
+      const shortLabel = gt.shortTermTrend ? gt.shortTermTrend.label : "Trend not yet available";
+      const longLabel = gt.longTermTrend && gt.longTermTrend.status !== "insufficient_data" ? gt.longTermTrend.label : null;
+
       card.innerHTML = `
         <h3>${escapeHtml(groupName)}</h3>
-        <span class="group-meta">${g.speciesCount} species tracked &middot; ${g.totalRecords.toLocaleString()} NI records</span>
+        <span class="group-meta">${g.totalRecords.toLocaleString()} total NI records, all species (sample basis for map)</span>
         <div class="group-chart-wrap"></div>
-        <p class="group-trend-label">${escapeHtml(trend.label)}</p>
+        <p class="group-trend-label">${escapeHtml(shortLabel)}${longLabel ? " · " + escapeHtml(longLabel) : ""}</p>
+        <div class="group-seq-block">
+          <h4>Sequencing effort (curated species in group)</h4>
+          <div class="group-seq-chart-wrap"></div>
+        </div>
       `;
       grid.appendChild(card);
+
       const series = yearsAndValues(g.byYear, 15);
       renderBarChart(card.querySelector(".group-chart-wrap"), series.labels, series.values, { color, currentYear, height: 190 });
+
+      const seqByYear = (seqGroups[groupName] && seqGroups[groupName].byYear) || {};
+      const seqSeries = yearsAndValues(seqByYear, 15);
+      renderBarChart(card.querySelector(".group-seq-chart-wrap"), seqSeries.labels, seqSeries.values, { color: "#D9932E", currentYear, height: 120 });
     });
   }
+
+  // ---------------- Map ----------------
+
+  function renderMapTabs() {
+    const tabs = document.getElementById("mapTabs");
+    const groupTotals = (state.groupTotals && state.groupTotals.groups) || {};
+    const names = Object.keys(groupTotals).sort();
+    tabs.innerHTML = "";
+    names.forEach((name) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "map-tab" + (name === state.mapGroup ? " active" : "");
+      btn.textContent = name;
+      btn.addEventListener("click", () => { state.mapGroup = name; renderMapTabs(); renderMap(); });
+      tabs.appendChild(btn);
+    });
+  }
+
+  function renderMap() {
+    const wrap = document.getElementById("mapWrap");
+    const caption = document.getElementById("mapCaption");
+    const groupTotals = (state.groupTotals && state.groupTotals.groups) || {};
+    const g = state.mapGroup && groupTotals[state.mapGroup];
+    if (!g || g.error || !g.grid) {
+      wrap.innerHTML = `<p class="no-results">Map data not yet available for this group.</p>`;
+      caption.textContent = "";
+      return;
+    }
+    renderGridHeatmap(wrap, g.grid, GROUP_PALETTE[state.mapGroup] || DEFAULT_COLOR, { height: 380 });
+    caption.textContent = `${state.mapGroup}: based on a sample of ${g.gridSampleSize || 0} recent geo-tagged records across Northern Ireland. Darker cells = more records in the sample, not a precise density estimate.`;
+  }
+
+
 
   // ---------------- Pest & pathogen watch ----------------
 
@@ -390,13 +497,21 @@
     card.innerHTML = `
       <h3>${escapeHtml(sp.commonName)}</h3>
       <span class="sci-name">${escapeHtml(sp.scientificName)}</span>
-      <div class="card-sparkline"></div>
+      <div class="card-sparkline-row">
+        <div class="card-sparkline" title="Observations"></div>
+        <div class="card-sparkline" title="Sequences"></div>
+      </div>
+      <span class="sparkline-label">Observations (left) &middot; sequences (right)</span>
       <span class="card-status">${escapeHtml(statusLineFor(sp.scientificName))}</span>
     `;
     card.addEventListener("click", () => showSpeciesDetail(sp.scientificName));
     const occ = state.occData.species && state.occData.species[sp.scientificName];
-    const series = yearsAndValues((occ && occ.byYear) || {}, 10);
-    renderSparkline(card.querySelector(".card-sparkline"), series.labels, series.values, GROUP_PALETTE[sp.category] || DEFAULT_COLOR);
+    const occSeries = yearsAndValues((occ && occ.byYear) || {}, 10);
+    const sparklines = card.querySelectorAll(".card-sparkline");
+    renderSparkline(sparklines[0], occSeries.labels, occSeries.values, GROUP_PALETTE[sp.category] || DEFAULT_COLOR);
+    const seq = state.seqData.species && state.seqData.species[sp.scientificName];
+    const seqSeries = yearsAndValues((seq && seq.byYear) || {}, 10);
+    renderSparkline(sparklines[1], seqSeries.labels, seqSeries.values, "#D9932E");
     return card;
   }
 
@@ -554,7 +669,7 @@
   }
 
   function setBrowseVisible(visible) {
-    [".signal-section", ".groups-section", ".compare-section", ".risk-section", ".alerts-section", ".search-section"].forEach((sel) => {
+    [".signal-section", ".groups-section", ".map-section", ".compare-section", ".risk-section", ".alerts-section", ".search-section"].forEach((sel) => {
       document.querySelector(sel).hidden = !visible;
     });
     document.getElementById("categoryBrowser").hidden = !visible;
@@ -631,31 +746,46 @@
     return names[0];
   }
 
+  function bestDefaultMapGroup() {
+    const groupTotals = (state.groupTotals && state.groupTotals.groups) || {};
+    const names = Object.keys(groupTotals).filter((n) => !groupTotals[n].error);
+    if (!names.length) return null;
+    names.sort((a, b) => (groupTotals[b].totalRecords - groupTotals[a].totalRecords) || a.localeCompare(b));
+    return names[0];
+  }
+
   async function init() {
     document.getElementById("backToBrowse").addEventListener("click", backToBrowse);
 
-    const [config, summary, occData, seqData] = await Promise.all([
+    const [config, summary, occData, seqData, groupTotals] = await Promise.all([
       fetchJson("species-config.json", { species: [], boundary: {} }),
-      fetchJson("data/summary.json", { generatedAt: null, speciesCount: 0, overview: { improving: 0, declining: 0, stable: 0 }, alerts: [], species: {} }),
+      fetchJson("data/summary.json", { generatedAt: null, speciesCount: 0, overview: { improving: 0, declining: 0, stable: 0 }, groupOverview: { improving: 0, declining: 0, stable: 0 }, groupTrends: {}, alerts: [], species: {} }),
       fetchJson("data/occurrences.json", { generatedAt: null, species: {} }),
       fetchJson("data/sequences.json", { generatedAt: null, species: {} }),
+      fetchJson("data/group_totals.json", { generatedAt: null, groups: {} }),
     ]);
 
     state.config = config;
     state.summary = summary;
     state.occData = occData;
     state.seqData = seqData;
+    state.groupTotals = groupTotals;
 
     document.getElementById("lastUpdated").textContent = formatUpdated(summary.generatedAt);
     document.getElementById("pendingBanner").hidden = !!summary.generatedAt && summary.speciesCount > 0;
 
     renderKPIs();
+    renderSignalGroups();
     renderSignal();
     renderGroups();
     renderRiskWatch();
     renderAlerts();
     renderCategoryBrowser();
     setupSearch();
+
+    const defaultMapGroup = bestDefaultMapGroup();
+    if (defaultMapGroup) { state.mapGroup = defaultMapGroup; renderMapTabs(); renderMap(); }
+    else { renderMapTabs(); document.getElementById("mapWrap").innerHTML = `<p class="no-results">Map data will appear once the first automated survey has run.</p>`; }
 
     if (occData.generatedAt) {
       const defaultGroup = bestDefaultCompareGroup();
