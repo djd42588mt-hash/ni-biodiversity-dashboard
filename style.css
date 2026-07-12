@@ -130,7 +130,35 @@ main { max-width: 1040px; margin: 0 auto; padding: 0 1.25rem 4rem; }
 .signal-track .seg-declining { background: var(--brick); }
 .signal-track .seg-stable { background: #B9AF98; }
 
-/* ---------- Alerts rail ---------- */
+.signal-card-secondary { margin-top: 1rem; opacity: 0.94; }
+.signal-card-secondary .signal-stat .signal-count { font-size: 1.6rem; }
+
+/* group cards now carry a trend-tone left border, same language as species cards */
+.group-card.tone-decline { border-left: 4px solid var(--brick); }
+.group-card.tone-moderate { border-left: 4px solid var(--amber-deep); }
+.group-card.tone-increase { border-left: 4px solid var(--green); }
+.group-card.tone-neutral { border-left: 4px solid #9A9284; }
+.group-seq-block { margin-top: 0.9rem; padding-top: 0.7rem; border-top: 1px dashed var(--parchment-line); }
+.group-seq-block h4 { font-size: 0.78rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-soft); margin: 0 0 0.3rem; font-weight: 600; }
+.group-seq-chart-wrap svg { display: block; width: 100%; height: auto; }
+
+/* ---------- Map ---------- */
+
+.map-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.9rem; }
+.map-tab {
+  font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.03em; padding: 0.4rem 0.85rem; border-radius: 999px;
+  border: 1px solid var(--bg-dark-line); background: transparent; color: var(--cream-soft); cursor: pointer;
+}
+.map-tab.active { background: var(--amber); border-color: var(--amber); color: var(--ink); font-weight: 600; }
+.map-card { background: var(--parchment); border-radius: var(--radius); box-shadow: var(--shadow-card); padding: 1.1rem 1.2rem; }
+.map-wrap svg { display: block; width: 100%; height: auto; }
+.map-caption { font-size: 0.82rem; color: var(--ink-soft); margin: 0.6rem 0 0; }
+
+/* ---------- Species-card sequence sparkline ---------- */
+
+.card-sparkline-row { display: flex; gap: 0.5rem; margin: 0.3rem 0; }
+.card-sparkline-row .card-sparkline { flex: 1; }
+.sparkline-label { font-family: var(--font-mono); font-size: 0.6rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-top: 0.1rem; }
 
 .alerts-rail { display: flex; gap: 0.9rem; overflow-x: auto; padding: 0.3rem 0.1rem 0.9rem; scrollbar-width: thin; scroll-snap-type: x proximity; }
 .alert-card { flex: 0 0 auto; width: 250px; scroll-snap-align: start; }
