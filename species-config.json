@@ -1,0 +1,39 @@
+{
+  "_readme": "Edit this list to add/remove tracked species. scientificName must match GBIF/NCBI usage. category groups species in the UI. trackOccurrences=false skips the GBIF call (use for organisms rarely field-recorded, e.g. bacteria). trackSequences=false skips NCBI. invasiveAlert=true triggers a high-priority alert on ANY occurrence record rather than needing a % change (use for species that are absent or newly-arrived and where a single detection matters).",
+  "boundary": {
+    "note": "Simple bounding box for Northern Ireland + country=GB filter. See README for why this approach was chosen and how to refine it.",
+    "minLat": 53.95,
+    "maxLat": 55.35,
+    "minLon": -8.20,
+    "maxLon": -5.30
+  },
+  "species": [
+    { "scientificName": "Apis mellifera", "commonName": "Honey bee", "category": "Pollinators", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Bombus terrestris", "commonName": "Buff-tailed bumblebee", "category": "Pollinators", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Bombus pascuorum", "commonName": "Common carder bee", "category": "Pollinators", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Bombus lucorum", "commonName": "White-tailed bumblebee", "category": "Pollinators", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Bombus lapidarius", "commonName": "Red-tailed bumblebee", "category": "Pollinators", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Varroa destructor", "commonName": "Varroa mite", "category": "Bee pests & pathogens", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Paenibacillus larvae", "commonName": "American foulbrood (bacterium)", "category": "Bee pests & pathogens", "trackOccurrences": false, "trackSequences": true },
+    { "scientificName": "Melissococcus plutonius", "commonName": "European foulbrood (bacterium)", "category": "Bee pests & pathogens", "trackOccurrences": false, "trackSequences": true },
+    { "scientificName": "Nosema apis", "commonName": "Nosema apis", "category": "Bee pests & pathogens", "trackOccurrences": false, "trackSequences": true },
+    { "scientificName": "Nosema ceranae", "commonName": "Nosema ceranae", "category": "Bee pests & pathogens", "trackOccurrences": false, "trackSequences": true },
+    { "scientificName": "Vespa velutina", "commonName": "Asian hornet", "category": "Invasive species", "trackOccurrences": true, "trackSequences": true, "invasiveAlert": true, "note": "First confirmed NI sighting: Dundonald, Belfast, Oct 2025" },
+    { "scientificName": "Ips typographus", "commonName": "European spruce bark beetle", "category": "Invasive species", "trackOccurrences": true, "trackSequences": true, "invasiveAlert": true },
+    { "scientificName": "Harmonia axyridis", "commonName": "Harlequin ladybird", "category": "Invasive species", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Sciurus carolinensis", "commonName": "Grey squirrel", "category": "Invasive species", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Hymenoscyphus fraxineus", "commonName": "Ash dieback fungus", "category": "Forest health", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Phytophthora ramorum", "commonName": "Sudden oak death pathogen", "category": "Forest health", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Dendroctonus micans", "commonName": "Great spruce bark beetle", "category": "Forest health", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Lepus timidus", "commonName": "Irish hare", "category": "Priority species", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Sciurus vulgaris", "commonName": "Red squirrel", "category": "Priority species", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Numenius arquata", "commonName": "Eurasian curlew", "category": "Priority species", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Crex crex", "commonName": "Corncrake", "category": "Priority species", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Martes martes", "commonName": "Pine marten", "category": "Priority species", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Lutra lutra", "commonName": "Eurasian otter", "category": "Priority species", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Hirundo rustica", "commonName": "Barn swallow", "category": "Indicator species", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Erinaceus europaeus", "commonName": "European hedgehog", "category": "Indicator species", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Rana temporaria", "commonName": "Common frog", "category": "Indicator species", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Lissotriton vulgaris", "commonName": "Smooth newt", "category": "Indicator species", "trackOccurrences": true, "trackSequences": true }
+  ]
+}
