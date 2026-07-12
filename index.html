@@ -17,8 +17,9 @@
   <div class="header-inner">
     <p class="eyebrow">An open biodiversity record &middot; Northern Ireland</p>
     <h1>Biodiversity Watch</h1>
-    <p class="subtitle">Tracking recorded wildlife observations (GBIF) and GenBank reference sequences (NCBI) for species of interest across Northern Ireland — updated automatically.</p>
+    <p class="subtitle">Tracking recorded wildlife observations (GBIF) and GenBank reference sequences (NCBI) across Northern Ireland — updated automatically.</p>
     <p class="last-updated" id="lastUpdated">Checking the record&hellip;</p>
+    <div class="kpi-strip" id="kpiStrip"></div>
   </div>
 </header>
 
@@ -34,6 +35,25 @@
       <p class="section-note">Recorded NI observations per year, summed across every tracked species in each group.</p>
     </div>
     <div class="groups-grid" id="groupsGrid"></div>
+  </section>
+
+  <section class="compare-section" aria-label="Compare species">
+    <div class="section-heading">
+      <h2>Compare species</h2>
+      <p class="section-note">Pick a group, then toggle species on or off to overlay their trends.</p>
+    </div>
+    <div class="compare-tabs" id="compareTabs"></div>
+    <div class="compare-chips" id="compareChips"></div>
+    <div class="chart-wrap compare-chart-wrap"><canvas id="compareChart"></canvas></div>
+    <p class="no-results" id="compareEmptyNote" hidden>Select at least one species above to see a comparison.</p>
+  </section>
+
+  <section class="risk-section" aria-label="Pest and pathogen watch">
+    <div class="section-heading">
+      <h2>Pest &amp; pathogen watch</h2>
+      <p class="section-note">Species with a regulatory or biosecurity status. Starting point only — check the live <a href="https://www.daera-ni.gov.uk/topics/northern-ireland-plant-health-risk-register" target="_blank" rel="noopener">NI Plant Health Risk Register</a> for the current, authoritative list of 900+ species.</p>
+    </div>
+    <div class="risk-grid" id="riskGrid"></div>
   </section>
 
   <section class="alerts-section" aria-label="Notable changes this period">
@@ -75,6 +95,10 @@
         <p>Only complete calendar years feed the % change shown for observations — the current year-to-date is displayed on charts but excluded from alerts, so a partial year is never mistaken for a decline. Species with an <strong>invasive-species watch flag</strong> are alerted the moment any record appears at all.</p>
       </div>
       <div class="method-card">
+        <h3>Pest &amp; pathogen status</h3>
+        <p>Regulatory labels here are a starting reference, not a live legal register. Always verify current status against the <a href="https://www.daera-ni.gov.uk/topics/northern-ireland-plant-health-risk-register" target="_blank" rel="noopener">NI Plant Health Risk Register</a> and the Bee Diseases and Pests Control Order (NI) 2007 before acting on it.</p>
+      </div>
+      <div class="method-card">
         <h3>Data refresh</h3>
         <p>An automated job re-fetches every figure on a schedule (see the repository's GitHub Actions workflow) and commits the result. Nothing needs to be run by hand.</p>
       </div>
@@ -84,7 +108,7 @@
 </main>
 
 <footer class="site-footer">
-  <p>Data: <a href="https://www.gbif.org/" target="_blank" rel="noopener">GBIF.org</a> &middot; <a href="https://www.ncbi.nlm.nih.gov/genbank/" target="_blank" rel="noopener">NCBI GenBank</a>. Source and species list on <span id="repoLinkPlaceholder">GitHub</span>.</p>
+  <p>Data: <a href="https://www.gbif.org/" target="_blank" rel="noopener">GBIF.org</a> &middot; <a href="https://www.ncbi.nlm.nih.gov/genbank/" target="_blank" rel="noopener">NCBI GenBank</a> &middot; <a href="https://www.daera-ni.gov.uk/topics/northern-ireland-plant-health-risk-register" target="_blank" rel="noopener">NI Plant Health Risk Register</a>. Source and species list on <span id="repoLinkPlaceholder">GitHub</span>.</p>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
