@@ -4,25 +4,38 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Northern Ireland Biodiversity Watch</title>
-<meta name="description" content="Long-term trends in recorded wildlife observations and GenBank reference sequences across Northern Ireland, for AFBI, DAERA and the public.">
+<meta name="description" content="Long-term trends in recorded wildlife observations and GenBank reference sequences across Northern Ireland.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,420;0,9..144,560;0,9..144,650;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <header class="site-header">
   <div class="header-inner">
-    <p class="eyebrow">A field record for AFBI &amp; DAERA &middot; Northern Ireland</p>
+    <p class="eyebrow">An open biodiversity record &middot; Northern Ireland</p>
     <h1>Biodiversity Watch</h1>
     <p class="subtitle">Tracking recorded wildlife observations (GBIF) and GenBank reference sequences (NCBI) for species of interest across Northern Ireland — updated automatically.</p>
     <p class="last-updated" id="lastUpdated">Checking the record&hellip;</p>
   </div>
 </header>
+
 <main>
+
   <section class="pending-banner" id="pendingBanner" hidden>
     <p><strong>Waiting on the first automated survey.</strong> This page ships with the structure in place but no data yet — once the scheduled workflow runs (or is triggered manually from the Actions tab), every card below fills in on its own. No further action needed.</p>
   </section>
+
+  <section class="groups-section" aria-label="Trends by taxonomic group">
+    <div class="section-heading">
+      <h2>Trends by group</h2>
+      <p class="section-note">Recorded NI observations per year, summed across every tracked species in each group.</p>
+    </div>
+    <div class="groups-grid" id="groupsGrid"></div>
+  </section>
+
   <section class="alerts-section" aria-label="Notable changes this period">
     <div class="section-heading">
       <h2>Worth a closer look</h2>
@@ -32,16 +45,20 @@
       <p class="muted-note" id="alertsEmptyNote" hidden>No significant changes flagged in the current dataset.</p>
     </div>
   </section>
+
   <section class="search-section">
     <label for="speciesSearch" class="search-label">Search the record</label>
     <input id="speciesSearch" type="text" placeholder="Try &lsquo;curlew&rsquo;, &lsquo;honey bee&rsquo;, or Numenius arquata" autocomplete="off" spellcheck="false">
     <p class="search-hint">Searches both common and scientific names across every tracked species.</p>
   </section>
+
   <section id="categoryBrowser" class="category-browser" aria-label="Species by category"></section>
+
   <section id="speciesDetail" class="species-detail" hidden>
     <button class="back-link" id="backToBrowse" type="button">&larr; Back to all species</button>
     <div id="speciesDetailContent"></div>
   </section>
+
   <section class="methodology" id="methodology">
     <h2>How to read this</h2>
     <div class="methodology-grid">
@@ -63,10 +80,13 @@
       </div>
     </div>
   </section>
+
 </main>
+
 <footer class="site-footer">
-  <p>Data: <a href="https://www.gbif.org/" target="_blank" rel="noopener">GBIF.org</a> &middot; <a href="https://www.ncbi.nlm.nih.gov/genbank/" target="_blank" rel="noopener">NCBI GenBank</a>. Built for AFBI's Plant Health &amp; Integrated Pest Management Branch and DAERA. Source and species list on <span id="repoLinkPlaceholder">GitHub</span>.</p>
+  <p>Data: <a href="https://www.gbif.org/" target="_blank" rel="noopener">GBIF.org</a> &middot; <a href="https://www.ncbi.nlm.nih.gov/genbank/" target="_blank" rel="noopener">NCBI GenBank</a>. Source and species list on <span id="repoLinkPlaceholder">GitHub</span>.</p>
 </footer>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
 <script src="app.js"></script>
 </body>
