@@ -51,8 +51,8 @@ MIN_BASELINE_YEARS = 2
 BASELINE_WINDOW = 5
 SEQUENCE_STALL_YEARS = 3
 
-LONG_TERM_MIN_YEARS = 6          # need at least this many complete years to attempt a long-term trend
-LONG_TERM_ENDPOINT_YEARS = 3     # average this many years at each end of the record
+LONG_TERM_MIN_YEARS = 4          # need at least this many complete years to attempt a long-term trend (lowered from 6 - too strict a threshold was silently emptying this panel)
+LONG_TERM_ENDPOINT_YEARS = 2     # average this many years at each end of the record (lowered from 3 to match)
 LONG_TERM_DECLINE_THRESHOLD = -25
 LONG_TERM_IMPROVE_THRESHOLD = 25
 
@@ -211,6 +211,12 @@ def main():
     with open(SEQ_PATH, "r", encoding="utf-8") as f:
         seq_data = json.load(f)
 
+    group_totals_path = os.path.join(ROOT_DIR, "data", "group_totals.json")
+    group_data = {"groups": {}}
+    if os.path.exists(group_totals_path):
+        with open(group_totals_path, "r", encoding="utf-8") as f:
+            group_data = json.load(f)
+
     current_year = time.gmtime().tm_year
     species_summary = {}
     alerts = []
@@ -259,11 +265,39 @@ def main():
     declining = sum(1 for s in species_summary.values() if s["longTermTrend"] and s["longTermTrend"]["status"] == "declining")
     stable = sum(1 for s in species_summary.values() if s["longTermTrend"] and s["longTermTrend"]["status"] == "no_clear_change")
 
+    # Comprehensive (all-species-in-group) trends, from fetch_gbif_groups.py's output.
+    # This is deliberately separate from the curated-species figures above: it reflects
+    # every recorded organism GBIF has for that taxonomic group in NI, not just the
+    # ~30 species this dashboard tracks individually.
+    group_trends = {}
+    group_improving = group_declining = group_stable = 0
+    for group_name, g in group_data.get("groups", {}).items():
+        if g.get("error"):
+            group_trends[group_name] = {"error": g["error"]}
+            continue
+        by_year = g.get("byYear", {})
+        g_short = classify_short_term_trend(by_year, current_year, invasive_alert=False)
+        g_long = classify_long_term_trend(by_year, current_year)
+        group_trends[group_name] = {
+            "shortTermTrend": g_short,
+            "longTermTrend": g_long,
+            "totalRecords": g.get("totalRecords", 0),
+            "taxonFilter": g.get("taxonFilter"),
+        }
+        if g_long["status"] == "improving":
+            group_improving += 1
+        elif g_long["status"] == "declining":
+            group_declining += 1
+        elif g_long["status"] == "no_clear_change":
+            group_stable += 1
+
     output = {
         "generatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "currentYear": current_year,
         "speciesCount": len(species_summary),
         "overview": {"improving": improving, "declining": declining, "stable": stable},
+        "groupOverview": {"improving": group_improving, "declining": group_declining, "stable": group_stable, "groupsWithData": len(group_trends)},
+        "groupTrends": group_trends,
         "alerts": alerts,
         "species": species_summary,
     }
