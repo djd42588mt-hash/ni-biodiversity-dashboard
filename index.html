@@ -32,8 +32,15 @@
   <section class="signal-section" aria-label="Overall long-term signal">
     <div class="signal-card">
       <div class="signal-heading">
-        <h2>Long-term signal</h2>
-        <p class="section-note">Earliest three years of records vs the most recent three, per species — the same improving/declining/no-change convention used in the UK Biodiversity Indicators (JNCC/Defra).</p>
+        <h2>Long-term signal — all recorded species</h2>
+        <p class="section-note">Comprehensive: every species GBIF has on record for Northern Ireland in each group, not just this dashboard's curated list. Earliest years on record vs the most recent — same improving/declining/no-change convention as the UK Biodiversity Indicators (JNCC/Defra).</p>
+      </div>
+      <div class="signal-bars" id="signalBarsGroups"></div>
+    </div>
+    <div class="signal-card signal-card-secondary">
+      <div class="signal-heading">
+        <h2>Long-term signal — curated watchlist</h2>
+        <p class="section-note">The same comparison, but only for the <span id="curatedCountPlaceholder">this dashboard's</span> individually-tracked species (pollinators, priority species, pest & pathogen watch, etc).</p>
       </div>
       <div class="signal-bars" id="signalBars"></div>
     </div>
@@ -41,10 +48,22 @@
 
   <section class="groups-section" aria-label="Trends by taxonomic group">
     <div class="section-heading">
-      <h2>Trends by group</h2>
-      <p class="section-note">Recorded NI observations per year, summed across every tracked species in each group. Hover any bar for the exact count.</p>
+      <h2>Trends by group — all recorded species</h2>
+      <p class="section-note">Every GBIF-recorded observation for the group in Northern Ireland, per year — not limited to the curated species list. Card colour reflects the group's own short-term trend. Second chart shows GenBank sequencing effort for this dashboard's tracked species in the group (shown even when flat).</p>
     </div>
     <div class="groups-grid" id="groupsGrid"></div>
+  </section>
+
+  <section class="map-section" aria-label="Geographic distribution">
+    <div class="section-heading">
+      <h2>Where in Northern Ireland</h2>
+      <p class="section-note">A coarse grid over Northern Ireland showing where each group's records concentrate, from a same-sized sample per group. This is a density sample, not an exhaustive survey — treat it as indicative, and note it is not corrected for uneven recording effort across the region (more populated/accessible areas are typically over-represented).</p>
+    </div>
+    <div class="map-tabs" id="mapTabs"></div>
+    <div class="map-card">
+      <div class="map-wrap" id="mapWrap"></div>
+      <p class="map-caption" id="mapCaption"></p>
+    </div>
   </section>
 
   <section class="compare-section" aria-label="Compare species">
@@ -64,7 +83,7 @@
   <section class="risk-section" aria-label="Pest and pathogen watch">
     <div class="section-heading">
       <h2>Pest &amp; pathogen watch</h2>
-      <p class="section-note">Species with a regulatory or biosecurity status. Starting point only — check the live <a href="https://www.daera-ni.gov.uk/topics/northern-ireland-plant-health-risk-register" target="_blank" rel="noopener">NI Plant Health Risk Register</a> for the current, authoritative list of 900+ species.</p>
+      <p class="section-note">Hand-curated from published DAERA/DEFRA policy pages (not a live feed — see each card's review date). The authoritative, continuously-updated source of record is the <a href="https://www.daera-ni.gov.uk/topics/northern-ireland-plant-health-risk-register" target="_blank" rel="noopener">NI Plant Health Risk Register</a> (900+ species) — always check there before acting on anything shown here.</p>
     </div>
     <div class="risk-grid" id="riskGrid"></div>
   </section>
@@ -96,20 +115,28 @@
     <h2>How to read this</h2>
     <div class="methodology-grid">
       <div class="method-card">
+        <h3>Comprehensive vs curated figures</h3>
+        <p>"Trends by group" and the map use <strong>every</strong> GBIF-recorded species in Northern Ireland for that group (queried by taxonomic class/kingdom/phylum) — a genuinely complete picture, not limited to this dashboard's tracked list. The species browser, compare tool, alerts and pest watch focus on a curated ~30-species watchlist instead, since those need individual species-level detail. Both are shown so neither is mistaken for the other.</p>
+      </div>
+      <div class="method-card">
         <h3>Two trend horizons</h3>
-        <p>Following UK Biodiversity Indicator practice, every species gets a <strong>short-term</strong> read (latest complete year vs the preceding 5-year average) and, once enough history exists, a <strong>long-term</strong> read (earliest 3 years on record vs the most recent 3). They can disagree — a species can be down this year but improving over the long run, or vice versa.</p>
+        <p>Following UK Biodiversity Indicator practice, every species and group gets a <strong>short-term</strong> read (latest complete year vs the preceding 5-year average) and a <strong>long-term</strong> read (earliest years on record vs the most recent). They can disagree — down this year but improving over the long run, or vice versa.</p>
       </div>
       <div class="method-card">
         <h3>Observation counts</h3>
         <p>Sourced from <a href="https://www.gbif.org/" target="_blank" rel="noopener">GBIF</a>, filtered to a Northern Ireland bounding box plus a UK country filter. These reflect <em>recorded</em> observations, not population size — a fall can mean fewer organisms, fewer people recording, or both.</p>
       </div>
       <div class="method-card">
+        <h3>The map</h3>
+        <p>Grid cells are built from a fixed-size sample of recent records per group (not the full dataset), so they show relative concentration, not a corrected density estimate — recording effort itself is uneven across Northern Ireland (more visits to accessible/populated areas), and this map does not adjust for that.</p>
+      </div>
+      <div class="method-card">
         <h3>GenBank sequences</h3>
-        <p>Sourced from <a href="https://www.ncbi.nlm.nih.gov/genbank/" target="_blank" rel="noopener">NCBI GenBank</a>. Tracks research and sequencing attention, not field abundance — counts almost never fall, so they're described as steady, accelerating, or stalled.</p>
+        <p>Sourced from <a href="https://www.ncbi.nlm.nih.gov/genbank/" target="_blank" rel="noopener">NCBI GenBank</a>. Tracks research and sequencing attention, not field abundance — counts almost never fall, so they're described as steady, accelerating, or stalled, and shown even when flat so effort is visible either way.</p>
       </div>
       <div class="method-card">
         <h3>Pest &amp; pathogen status</h3>
-        <p>Regulatory labels here are a starting reference, not a live legal register. Always verify against the <a href="https://www.daera-ni.gov.uk/topics/northern-ireland-plant-health-risk-register" target="_blank" rel="noopener">NI Plant Health Risk Register</a> and the Bee Diseases and Pests Control Order (NI) 2007.</p>
+        <p>These entries are hand-curated by cross-referencing published DAERA/DEFRA policy documents (each card shows when it was last reviewed) — this dashboard does not currently ingest the Risk Register's own data file automatically. Always verify against the live <a href="https://www.daera-ni.gov.uk/topics/northern-ireland-plant-health-risk-register" target="_blank" rel="noopener">NI Plant Health Risk Register</a> and the Bee Diseases and Pests Control Order (NI) 2007 before treating anything here as current.</p>
       </div>
       <div class="method-card">
         <h3>Data refresh &amp; provenance</h3>
