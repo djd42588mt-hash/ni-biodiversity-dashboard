@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-12T09:55:00Z",
+  "generatedAt": "2026-07-12T13:04:05Z",
   "currentYear": 2026,
   "speciesCount": 31,
   "overview": {
@@ -8,12 +8,153 @@
     "stable": 1
   },
   "groupOverview": {
-    "improving": 0,
+    "improving": 7,
     "declining": 0,
     "stable": 0,
-    "groupsWithData": 0
+    "groupsWithData": 7
   },
-  "groupTrends": {},
+  "groupTrends": {
+    "Invertebrates": {
+      "shortTermTrend": {
+        "status": "moderate_decline",
+        "label": "Down 37% vs the 5-year average",
+        "pctChange": -37,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 57381,
+        "currentYearToDateCount": 18716
+      },
+      "longTermTrend": {
+        "status": "improving",
+        "label": "Improving since 1760-2025 (+150621%)",
+        "pctChange": 150621,
+        "spanYears": "1760-2025"
+      },
+      "totalRecords": 3735943,
+      "taxonFilter": {
+        "phylum": "Arthropoda"
+      }
+    },
+    "Mammals": {
+      "shortTermTrend": {
+        "status": "moderate_decline",
+        "label": "Down 37% vs the 5-year average",
+        "pctChange": -37,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 57381,
+        "currentYearToDateCount": 18716
+      },
+      "longTermTrend": {
+        "status": "improving",
+        "label": "Improving since 1760-2025 (+150621%)",
+        "pctChange": 150621,
+        "spanYears": "1760-2025"
+      },
+      "totalRecords": 3735943,
+      "taxonFilter": {
+        "class": "Mammalia"
+      }
+    },
+    "Birds": {
+      "shortTermTrend": {
+        "status": "moderate_decline",
+        "label": "Down 37% vs the 5-year average",
+        "pctChange": -37,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 57381,
+        "currentYearToDateCount": 18716
+      },
+      "longTermTrend": {
+        "status": "improving",
+        "label": "Improving since 1760-2025 (+150621%)",
+        "pctChange": 150621,
+        "spanYears": "1760-2025"
+      },
+      "totalRecords": 3735943,
+      "taxonFilter": {
+        "class": "Aves"
+      }
+    },
+    "Fish": {
+      "shortTermTrend": {
+        "status": "moderate_decline",
+        "label": "Down 37% vs the 5-year average",
+        "pctChange": -37,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 57381,
+        "currentYearToDateCount": 18716
+      },
+      "longTermTrend": {
+        "status": "improving",
+        "label": "Improving since 1760-2025 (+150621%)",
+        "pctChange": 150621,
+        "spanYears": "1760-2025"
+      },
+      "totalRecords": 3735943,
+      "taxonFilter": {
+        "class": "Actinopterygii"
+      }
+    },
+    "Amphibians": {
+      "shortTermTrend": {
+        "status": "moderate_decline",
+        "label": "Down 37% vs the 5-year average",
+        "pctChange": -37,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 57381,
+        "currentYearToDateCount": 18716
+      },
+      "longTermTrend": {
+        "status": "improving",
+        "label": "Improving since 1760-2025 (+150621%)",
+        "pctChange": 150621,
+        "spanYears": "1760-2025"
+      },
+      "totalRecords": 3735943,
+      "taxonFilter": {
+        "class": "Amphibia"
+      }
+    },
+    "Fungi": {
+      "shortTermTrend": {
+        "status": "moderate_decline",
+        "label": "Down 37% vs the 5-year average",
+        "pctChange": -37,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 57381,
+        "currentYearToDateCount": 18716
+      },
+      "longTermTrend": {
+        "status": "improving",
+        "label": "Improving since 1760-2025 (+150621%)",
+        "pctChange": 150621,
+        "spanYears": "1760-2025"
+      },
+      "totalRecords": 3735943,
+      "taxonFilter": {
+        "kingdom": "Fungi"
+      }
+    },
+    "Bacteria": {
+      "shortTermTrend": {
+        "status": "moderate_decline",
+        "label": "Down 37% vs the 5-year average",
+        "pctChange": -37,
+        "latestCompleteYear": "2025",
+        "latestCompleteYearCount": 57381,
+        "currentYearToDateCount": 18716
+      },
+      "longTermTrend": {
+        "status": "improving",
+        "label": "Improving since 1760-2025 (+150621%)",
+        "pctChange": 150621,
+        "spanYears": "1760-2025"
+      },
+      "totalRecords": 3735943,
+      "taxonFilter": {
+        "kingdom": "Bacteria"
+      }
+    }
+  },
   "alerts": [
     {
       "scientificName": "Phytophthora ramorum",
