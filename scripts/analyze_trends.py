@@ -1,7 +1,37 @@
 #!/usr/bin/env python3
 """
-Reads data/occurrences.json and data/sequences.json and computes, per
-species, a plain-language trend classification the frontend can display.
+Reads data/occurrences.json and data/sequences.json (written by the two
+fetch_*.py scripts) and computes, per species, plain-language trend
+classifications the frontend can display without doing any maths itself.
+
+Key design decisions, spelled out because they affect what the dashboard is
+allowed to claim:
+
+1. Only COMPLETE calendar years are used to flag a rise/decline. The current
+   in-progress year is shown on charts (clearly labelled "year to date") but
+   is excluded from every % change calculation below.
+
+2. Two trend horizons are computed, following the same short-term/long-term
+   split used in the UK Biodiversity Indicators (JNCC/Defra): a SHORT-TERM
+   trend (latest complete year vs the preceding ~5-year average) and a
+   LONG-TERM trend (average of the earliest 3 complete years on record vs
+   average of the most recent 3), classified as Improving / Declining /
+   No clear change / Insufficient data - the same four-way vocabulary
+   official UK biodiversity statistics use, rather than home-grown wording.
+
+3. Occurrence-record changes are reported as changes in RECORDED observations,
+   not population size. A drop can mean fewer organisms, fewer surveyors, or
+   both - the dashboard says so explicitly rather than implying a population
+   claim the data can't support.
+
+4. Sequence counts are cumulative and (almost) never fall, so they get a
+   different vocabulary: "stalled" / "growing" rather than "declined".
+
+5. Species flagged invasiveAlert in species-config.json get a distinct
+   biosecurity-style alert the moment ANY record appears, rather than
+   needing a percent change (a move from 0 to 1 is the whole story here).
+
+Thresholds are named constants below - tune them in one place.
 """
 import json
 import os
@@ -14,12 +44,17 @@ OCC_PATH = os.path.join(ROOT_DIR, "data", "occurrences.json")
 SEQ_PATH = os.path.join(ROOT_DIR, "data", "sequences.json")
 OUTPUT_PATH = os.path.join(ROOT_DIR, "data", "summary.json")
 
-DECLINE_SIGNIFICANT = -50
+DECLINE_SIGNIFICANT = -50   # % vs baseline, short-term
 DECLINE_MODERATE = -25
 INCREASE_NOTABLE = 50
 MIN_BASELINE_YEARS = 2
 BASELINE_WINDOW = 5
 SEQUENCE_STALL_YEARS = 3
+
+LONG_TERM_MIN_YEARS = 6          # need at least this many complete years to attempt a long-term trend
+LONG_TERM_ENDPOINT_YEARS = 3     # average this many years at each end of the record
+LONG_TERM_DECLINE_THRESHOLD = -25
+LONG_TERM_IMPROVE_THRESHOLD = 25
 
 
 def complete_years_only(by_year: dict, current_year: int):
@@ -35,7 +70,7 @@ def complete_years_only(by_year: dict, current_year: int):
     return out
 
 
-def classify_occurrence_trend(by_year: dict, current_year: int, invasive_alert: bool):
+def classify_short_term_trend(by_year: dict, current_year: int, invasive_alert: bool):
     complete = complete_years_only(by_year, current_year)
     years_sorted = sorted(complete.keys(), key=int)
     current_year_count = by_year.get(str(current_year))
@@ -92,10 +127,10 @@ def classify_occurrence_trend(by_year: dict, current_year: int, invasive_alert: 
             status = "stable"
 
     labels = {
-        "significant_decline": f"Recorded observations down {abs(pct_change)}% vs the {len(baseline_years)}-year average",
-        "moderate_decline": f"Recorded observations down {abs(pct_change)}% vs the {len(baseline_years)}-year average",
-        "notable_increase": f"Recorded observations up {pct_change}% vs the {len(baseline_years)}-year average",
-        "stable": "Recorded observations broadly stable",
+        "significant_decline": f"Down {abs(pct_change)}% vs the {len(baseline_years)}-year average",
+        "moderate_decline": f"Down {abs(pct_change)}% vs the {len(baseline_years)}-year average",
+        "notable_increase": f"Up {pct_change}% vs the {len(baseline_years)}-year average",
+        "stable": "Broadly stable vs recent years",
         "increase_from_zero": "New records after a baseline of none",
         "no_change": "No records in the baseline or latest complete year",
     }
@@ -110,6 +145,46 @@ def classify_occurrence_trend(by_year: dict, current_year: int, invasive_alert: 
     }
 
 
+def classify_long_term_trend(by_year: dict, current_year: int):
+    """
+    Compares the average of the earliest N complete years on record against
+    the average of the most recent N complete years - the same idea as the
+    long-term arrow in the UK Biodiversity Indicators. Uses whatever history
+    GBIF actually returns, so "long-term" here means "since this dataset's
+    earliest available record", not any fixed calendar baseline.
+    """
+    complete = complete_years_only(by_year, current_year)
+    years_sorted = sorted(complete.keys(), key=int)
+    if len(years_sorted) < LONG_TERM_MIN_YEARS:
+        return {"status": "insufficient_data", "label": "Not enough years of history for a long-term trend", "pctChange": None, "spanYears": None}
+
+    n = LONG_TERM_ENDPOINT_YEARS
+    earliest = years_sorted[:n]
+    latest = years_sorted[-n:]
+    earliest_avg = sum(complete[y] for y in earliest) / len(earliest)
+    latest_avg = sum(complete[y] for y in latest) / len(latest)
+    span = f"{years_sorted[0]}-{years_sorted[-1]}"
+
+    if not earliest_avg:
+        status = "improving" if latest_avg > 0 else "no_clear_change"
+        pct_change = None
+    else:
+        pct_change = round(((latest_avg - earliest_avg) / earliest_avg) * 100)
+        if pct_change <= LONG_TERM_DECLINE_THRESHOLD:
+            status = "declining"
+        elif pct_change >= LONG_TERM_IMPROVE_THRESHOLD:
+            status = "improving"
+        else:
+            status = "no_clear_change"
+
+    labels = {
+        "declining": f"Declining since {span} ({pct_change}%)",
+        "improving": f"Improving since {span} ({'+' if pct_change and pct_change > 0 else ''}{pct_change}%)" if pct_change is not None else f"Improving since {span}",
+        "no_clear_change": f"No clear change since {span}",
+    }
+    return {"status": status, "label": labels[status], "pctChange": pct_change, "spanYears": span}
+
+
 def classify_sequence_trend(by_year: dict, current_year: int):
     complete = complete_years_only(by_year, current_year)
     years_sorted = sorted(complete.keys(), key=int)
@@ -122,10 +197,7 @@ def classify_sequence_trend(by_year: dict, current_year: int):
     earlier_avg_per_year = (sum(complete[y] for y in earlier) / len(earlier)) if earlier else None
 
     if recent_sum == 0:
-        return {
-            "status": "stalled",
-            "label": f"No new GenBank sequences in the last {SEQUENCE_STALL_YEARS} complete years",
-        }
+        return {"status": "stalled", "label": f"No new GenBank sequences in the last {SEQUENCE_STALL_YEARS} complete years"}
     if earlier_avg_per_year and (recent_sum / SEQUENCE_STALL_YEARS) >= earlier_avg_per_year * 2:
         return {"status": "accelerating", "label": "Sequencing activity has notably picked up recently"}
     return {"status": "steady", "label": "Sequencing activity continuing at a steady pace"}
@@ -150,9 +222,12 @@ def main():
         occ_record = occ_data.get("species", {}).get(name)
         seq_record = seq_data.get("species", {}).get(name)
 
-        occ_trend = None
+        short_trend = None
+        long_trend = None
         if occ_record and not occ_record.get("error"):
-            occ_trend = classify_occurrence_trend(occ_record.get("byYear", {}), current_year, invasive_alert)
+            by_year = occ_record.get("byYear", {})
+            short_trend = classify_short_term_trend(by_year, current_year, invasive_alert)
+            long_trend = classify_long_term_trend(by_year, current_year)
 
         seq_trend = None
         if seq_record and not seq_record.get("error"):
@@ -161,30 +236,34 @@ def main():
         species_summary[name] = {
             "commonName": sp.get("commonName", name),
             "category": sp.get("category", "Other"),
-            "occurrenceTrend": occ_trend,
+            "shortTermTrend": short_trend,
+            "longTermTrend": long_trend,
             "sequenceTrend": seq_trend,
             "totalRecords": (occ_record or {}).get("totalRecords"),
             "totalSequences": (seq_record or {}).get("totalSequences"),
             "niOriginSequences": (seq_record or {}).get("niOriginTotal"),
         }
 
-        if occ_trend and occ_trend["status"] in (
-            "significant_decline", "moderate_decline", "biosecurity_alert"
-        ):
+        if short_trend and short_trend["status"] in ("significant_decline", "moderate_decline", "biosecurity_alert"):
             alerts.append({
                 "scientificName": name,
                 "commonName": sp.get("commonName", name),
-                "severity": "high" if occ_trend["status"] in ("significant_decline", "biosecurity_alert") else "moderate",
-                "message": occ_trend["label"],
+                "severity": "high" if short_trend["status"] in ("significant_decline", "biosecurity_alert") else "moderate",
+                "message": short_trend["label"],
             })
 
     severity_rank = {"high": 0, "moderate": 1}
     alerts.sort(key=lambda a: severity_rank.get(a["severity"], 2))
 
+    improving = sum(1 for s in species_summary.values() if s["longTermTrend"] and s["longTermTrend"]["status"] == "improving")
+    declining = sum(1 for s in species_summary.values() if s["longTermTrend"] and s["longTermTrend"]["status"] == "declining")
+    stable = sum(1 for s in species_summary.values() if s["longTermTrend"] and s["longTermTrend"]["status"] == "no_clear_change")
+
     output = {
         "generatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "currentYear": current_year,
         "speciesCount": len(species_summary),
+        "overview": {"improving": improving, "declining": declining, "stable": stable},
         "alerts": alerts,
         "species": species_summary,
     }
@@ -193,6 +272,7 @@ def main():
         json.dump(output, f, indent=2, ensure_ascii=False)
 
     print(f"Analysis complete: {len(species_summary)} species, {len(alerts)} alerts.")
+    print(f"Long-term signal: {improving} improving, {declining} declining, {stable} no clear change.")
 
 
 if __name__ == "__main__":
