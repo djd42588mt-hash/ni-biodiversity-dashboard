@@ -9,6 +9,10 @@
     activeChart1: null,
     activeChart2: null,
     groupCharts: [],
+    sparklineCharts: [],
+    compareGroup: null,
+    compareSelected: new Set(),
+    compareChart: null,
   };
 
   const GROUP_PALETTE = {
@@ -21,14 +25,12 @@
     Amphibians: "#5B7A2E",
   };
   const DEFAULT_GROUP_COLOR = "#5B5148";
+  const COMPARE_PALETTE = ["#3B6B4F", "#A9691B", "#2E6E8E", "#9C3F2C", "#7A5C3E", "#5B7A2E", "#8E4A5A", "#D9932E", "#24463A", "#5B5148"];
 
   const css = getComputedStyle(document.documentElement);
   const COLORS = {
     green: css.getPropertyValue("--green").trim() || "#3B6B4F",
-    greenDeep: css.getPropertyValue("--green-deep").trim() || "#24463A",
     amber: css.getPropertyValue("--amber").trim() || "#D9932E",
-    amberDeep: css.getPropertyValue("--amber-deep").trim() || "#A9691B",
-    brick: css.getPropertyValue("--brick").trim() || "#9C3F2C",
     ink: css.getPropertyValue("--ink").trim() || "#2A2420",
     inkSoft: css.getPropertyValue("--ink-soft").trim() || "#5B5148",
   };
@@ -37,6 +39,10 @@
     return String(str).replace(/[&<>"']/g, (c) => ({
       "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
     }[c]));
+  }
+
+  function slug(name) {
+    return String(name).replace(/[^a-zA-Z0-9]/g, "_");
   }
 
   async function fetchJson(path, fallback) {
@@ -77,6 +83,28 @@
     } catch {
       return `Record last updated ${iso}`;
     }
+  }
+
+  function yearsAndValues(byYear, backYears) {
+    const years = Object.keys(byYear || {}).sort();
+    const trimmed = backYears ? years.slice(-backYears) : years;
+    return { labels: trimmed, values: trimmed.map((y) => byYear[y] ?? 0) };
+  }
+
+  function renderKPIs() {
+    const kpi = document.getElementById("kpiStrip");
+    const species = state.config.species || [];
+    const groupsCount = new Set(species.map((s) => s.category)).size;
+    const alertsCount = (state.summary.alerts || []).length;
+    const totalRecords = Object.values((state.occData && state.occData.species) || {}).reduce(
+      (sum, r) => sum + (r.totalRecords || 0), 0
+    );
+    kpi.innerHTML = `
+      <div class="kpi-box"><div class="kpi-value">${species.length}</div><div class="kpi-label">species tracked</div></div>
+      <div class="kpi-box"><div class="kpi-value">${groupsCount}</div><div class="kpi-label">taxonomic groups</div></div>
+      <div class="kpi-box"><div class="kpi-value">${totalRecords.toLocaleString()}</div><div class="kpi-label">NI records logged</div></div>
+      <div class="kpi-box"><div class="kpi-value">${alertsCount}</div><div class="kpi-label">active alerts</div></div>
+    `;
   }
 
   function renderAlerts() {
@@ -198,13 +226,39 @@
             maintainAspectRatio: false,
             plugins: { legend: { display: false }, tooltip: { titleFont: { family: "IBM Plex Mono" }, bodyFont: { family: "IBM Plex Mono" } } },
             scales: {
-              x: { ticks: { display: false }, grid: { display: false } },
-              y: { display: false, beginAtZero: true },
+              x: { ticks: { font: { family: "IBM Plex Mono", size: 9 }, color: COLORS.inkSoft, maxRotation: 0, autoSkip: true, maxTicksLimit: 6 }, grid: { display: false } },
+              y: { beginAtZero: true, ticks: { font: { family: "IBM Plex Mono", size: 9 }, color: COLORS.inkSoft, maxTicksLimit: 4 }, grid: { color: "rgba(42,36,32,0.08)" } },
             },
           },
         });
         state.groupCharts.push(chart);
       }
+    });
+  }
+
+  function renderRiskWatch() {
+    const grid = document.getElementById("riskGrid");
+    grid.innerHTML = "";
+    const riskSpecies = (state.config.species || []).filter((sp) => sp.riskStatus);
+    if (!riskSpecies.length) {
+      grid.innerHTML = `<p class="no-results">No pest or pathogen entries configured yet.</p>`;
+      return;
+    }
+    riskSpecies.forEach((sp) => {
+      const rec = (state.summary.species && state.summary.species[sp.scientificName]) || {};
+      const occTrend = rec.occurrenceTrend;
+      const isWatch = !!sp.invasiveAlert;
+      const card = document.createElement("button");
+      card.type = "button";
+      card.className = `specimen-card risk-card ${isWatch ? "watch-species tone-alert" : "tone-neutral"}`;
+      card.innerHTML = `
+        <h3>${escapeHtml(sp.commonName)}</h3>
+        <span class="sci-name">${escapeHtml(sp.scientificName)}</span>
+        <span class="risk-status">${escapeHtml(sp.riskStatus)}</span>
+        <p class="risk-detect-line">${occTrend ? escapeHtml(occTrend.label) : "No occurrence data yet"}</p>
+      `;
+      card.addEventListener("click", () => showSpeciesDetail(sp.scientificName));
+      grid.appendChild(card);
     });
   }
 
@@ -230,15 +284,37 @@
     card.innerHTML = `
       <h3>${escapeHtml(sp.commonName)}</h3>
       <span class="sci-name">${escapeHtml(sp.scientificName)}</span>
+      <div class="card-sparkline"><canvas id="spark_${slug(sp.scientificName)}"></canvas></div>
       <span class="card-status">${escapeHtml(statusLineFor(sp.scientificName))}</span>
     `;
     card.addEventListener("click", () => showSpeciesDetail(sp.scientificName));
     return card;
   }
 
+  function createSparkline(sp) {
+    const canvas = document.getElementById(`spark_${slug(sp.scientificName)}`);
+    if (!canvas || !window.Chart) return;
+    const occ = state.occData.species && state.occData.species[sp.scientificName];
+    const series = yearsAndValues((occ && occ.byYear) || {}, 10);
+    if (!series.values.some((v) => v > 0)) return;
+    const color = GROUP_PALETTE[sp.category] || DEFAULT_GROUP_COLOR;
+    const chart = new Chart(canvas, {
+      type: "line",
+      data: { labels: series.labels, datasets: [{ data: series.values, borderColor: color, backgroundColor: "transparent", borderWidth: 1.5, pointRadius: 0, tension: 0.3 }] },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { enabled: false } },
+        scales: { x: { display: false }, y: { display: false } },
+      },
+    });
+    state.sparklineCharts.push(chart);
+  }
+
   function renderCategoryBrowser(filterFn) {
     const container = document.getElementById("categoryBrowser");
     container.innerHTML = "";
+    state.sparklineCharts.forEach((c) => c.destroy());
+    state.sparklineCharts = [];
     if (!state.config) return;
 
     const bySpeciesFilter = filterFn || (() => true);
@@ -268,6 +344,8 @@
       group.appendChild(grid);
       container.appendChild(group);
     });
+
+    categories.forEach((cat) => bucket[cat].forEach((sp) => createSparkline(sp)));
   }
 
   function setupSearch() {
@@ -281,10 +359,113 @@
     });
   }
 
-  function yearsAndValues(byYear, backYears) {
-    const years = Object.keys(byYear || {}).sort();
-    const trimmed = backYears ? years.slice(-backYears) : years;
-    return { labels: trimmed, values: trimmed.map((y) => byYear[y] ?? 0) };
+  function renderCompareTabs() {
+    const tabs = document.getElementById("compareTabs");
+    const categories = [...new Set((state.config.species || []).map((s) => s.category))].sort();
+    tabs.innerHTML = "";
+    categories.forEach((cat) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "compare-tab" + (cat === state.compareGroup ? " active" : "");
+      btn.textContent = cat;
+      btn.addEventListener("click", () => selectCompareGroup(cat));
+      tabs.appendChild(btn);
+    });
+  }
+
+  function selectCompareGroup(cat) {
+    state.compareGroup = cat;
+    const speciesInGroup = state.config.species.filter((s) => s.category === cat);
+    const withTotals = speciesInGroup.map((s) => ({
+      sp: s,
+      total: ((state.occData.species && state.occData.species[s.scientificName]) || {}).totalRecords || 0,
+    }));
+    withTotals.sort((a, b) => b.total - a.total);
+    state.compareSelected = new Set(withTotals.slice(0, 3).map((x) => x.sp.scientificName));
+    renderCompareTabs();
+    renderCompareChips();
+    renderCompareChart();
+  }
+
+  function renderCompareChips() {
+    const container = document.getElementById("compareChips");
+    container.innerHTML = "";
+    if (!state.compareGroup) return;
+    const speciesInGroup = state.config.species.filter((s) => s.category === state.compareGroup);
+    speciesInGroup.forEach((sp, i) => {
+      const chip = document.createElement("button");
+      chip.type = "button";
+      const selected = state.compareSelected.has(sp.scientificName);
+      const color = COMPARE_PALETTE[i % COMPARE_PALETTE.length];
+      chip.className = "compare-chip" + (selected ? " selected" : "");
+      if (selected) chip.style.color = color;
+      chip.innerHTML = `<span class="swatch" style="background:${selected ? color : "transparent"}"></span>${escapeHtml(sp.commonName)}`;
+      chip.addEventListener("click", () => {
+        if (state.compareSelected.has(sp.scientificName)) state.compareSelected.delete(sp.scientificName);
+        else state.compareSelected.add(sp.scientificName);
+        renderCompareChips();
+        renderCompareChart();
+      });
+      container.appendChild(chip);
+    });
+  }
+
+  function renderCompareChart() {
+    const emptyNote = document.getElementById("compareEmptyNote");
+    const canvas = document.getElementById("compareChart");
+    if (state.compareChart) { state.compareChart.destroy(); state.compareChart = null; }
+    if (!state.compareSelected.size) {
+      emptyNote.hidden = false;
+      canvas.style.display = "none";
+      return;
+    }
+    emptyNote.hidden = true;
+    canvas.style.display = "block";
+
+    const speciesInGroup = state.config.species.filter((s) => s.category === state.compareGroup);
+    const allYears = new Set();
+    speciesInGroup.forEach((sp) => {
+      if (!state.compareSelected.has(sp.scientificName)) return;
+      const occ = state.occData.species && state.occData.species[sp.scientificName];
+      Object.keys((occ && occ.byYear) || {}).forEach((y) => allYears.add(y));
+    });
+    const years = [...allYears].sort().slice(-15);
+
+    const datasets = [];
+    speciesInGroup.forEach((sp, i) => {
+      if (!state.compareSelected.has(sp.scientificName)) return;
+      const occ = state.occData.species && state.occData.species[sp.scientificName];
+      const byYear = (occ && occ.byYear) || {};
+      const color = COMPARE_PALETTE[i % COMPARE_PALETTE.length];
+      datasets.push({
+        label: sp.commonName,
+        data: years.map((y) => (byYear[y] != null ? byYear[y] : null)),
+        borderColor: color,
+        backgroundColor: color,
+        spanGaps: true,
+        tension: 0.25,
+        pointRadius: 2,
+      });
+    });
+
+    if (window.Chart) {
+      state.compareChart = new Chart(canvas, {
+        type: "line",
+        data: { labels: years, datasets },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: "bottom", labels: { color: COLORS.ink, font: { family: "Public Sans", size: 12 } } },
+            tooltip: { titleFont: { family: "IBM Plex Mono" }, bodyFont: { family: "IBM Plex Mono" } },
+          },
+          scales: {
+            x: { ticks: { font: { family: "IBM Plex Mono", size: 11 }, color: COLORS.inkSoft }, grid: { display: false } },
+            y: { beginAtZero: true, ticks: { font: { family: "IBM Plex Mono", size: 11 }, color: COLORS.inkSoft }, grid: { color: "rgba(42,36,32,0.08)" } },
+          },
+        },
+      });
+    }
   }
 
   function destroyCharts() {
@@ -299,6 +480,15 @@
     return "";
   }
 
+  function setBrowseVisible(visible) {
+    document.querySelector(".groups-section").hidden = !visible;
+    document.querySelector(".compare-section").hidden = !visible;
+    document.querySelector(".risk-section").hidden = !visible;
+    document.querySelector(".alerts-section").hidden = !visible;
+    document.querySelector(".search-section").hidden = !visible;
+    document.getElementById("categoryBrowser").hidden = !visible;
+  }
+
   function showSpeciesDetail(scientificName) {
     const sp = state.config.species.find((s) => s.scientificName === scientificName);
     if (!sp) return;
@@ -306,10 +496,7 @@
     const occTrend = rec.occurrenceTrend;
     const seqTrend = rec.sequenceTrend;
 
-    document.querySelector(".groups-section").hidden = true;
-    document.querySelector(".alerts-section").hidden = true;
-    document.querySelector(".search-section").hidden = true;
-    document.getElementById("categoryBrowser").hidden = true;
+    setBrowseVisible(false);
     const detail = document.getElementById("speciesDetail");
     detail.hidden = false;
     destroyCharts();
@@ -341,7 +528,7 @@
           </div>
         </div>
 
-        <p class="note-line">${occTrend ? escapeHtml(occTrend.label) : "No occurrence trend available yet."}${sp.note ? " · " + escapeHtml(sp.note) : ""}</p>
+        <p class="note-line">${occTrend ? escapeHtml(occTrend.label) : "No occurrence trend available yet."}${sp.note ? " · " + escapeHtml(sp.note) : ""}${sp.riskStatus ? " · " + escapeHtml(sp.riskStatus) : ""}</p>
 
         <div class="chart-block">
           <h3>Recorded observations per year</h3>
@@ -408,11 +595,16 @@
 
   function backToBrowse() {
     document.getElementById("speciesDetail").hidden = true;
-    document.querySelector(".groups-section").hidden = false;
-    document.querySelector(".alerts-section").hidden = false;
-    document.querySelector(".search-section").hidden = false;
-    document.getElementById("categoryBrowser").hidden = false;
+    setBrowseVisible(true);
     destroyCharts();
+  }
+
+  function bestDefaultCompareGroup() {
+    const groups = buildGroupAggregates();
+    const names = Object.keys(groups);
+    if (!names.length) return null;
+    names.sort((a, b) => (groups[b].totalRecords - groups[a].totalRecords) || a.localeCompare(b));
+    return names[0];
   }
 
   async function init() {
@@ -433,10 +625,22 @@
     document.getElementById("lastUpdated").textContent = formatUpdated(summary.generatedAt);
     document.getElementById("pendingBanner").hidden = !!summary.generatedAt && summary.speciesCount > 0;
 
+    renderKPIs();
     renderGroups();
+    renderRiskWatch();
     renderAlerts();
     renderCategoryBrowser();
     setupSearch();
+
+    if (occData.generatedAt) {
+      const defaultGroup = bestDefaultCompareGroup();
+      if (defaultGroup) selectCompareGroup(defaultGroup);
+    } else {
+      renderCompareTabs();
+      document.getElementById("compareEmptyNote").hidden = false;
+      document.getElementById("compareEmptyNote").textContent = "Compare charts will be available once the first automated survey has run.";
+      document.getElementById("compareChart").style.display = "none";
+    }
   }
 
   document.addEventListener("DOMContentLoaded", init);
