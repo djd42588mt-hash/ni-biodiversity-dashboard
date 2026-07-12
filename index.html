@@ -17,7 +17,7 @@
   <div class="header-inner">
     <p class="eyebrow">An open biodiversity record &middot; Northern Ireland</p>
     <h1>Biodiversity Watch</h1>
-    <p class="subtitle">Tracking recorded wildlife observations (GBIF) and GenBank reference sequences (NCBI) across Northern Ireland — updated automatically.</p>
+    <p class="subtitle">Recorded wildlife observations (GBIF) and GenBank reference sequences (NCBI) across Northern Ireland — updated automatically, no server required.</p>
     <p class="last-updated" id="lastUpdated">Checking the record&hellip;</p>
     <div class="kpi-strip" id="kpiStrip"></div>
   </div>
@@ -26,13 +26,23 @@
 <main>
 
   <section class="pending-banner" id="pendingBanner" hidden>
-    <p><strong>Waiting on the first automated survey.</strong> This page ships with the structure in place but no data yet — once the scheduled workflow runs (or is triggered manually from the Actions tab), every card below fills in on its own. No further action needed.</p>
+    <p><strong>Waiting on the first automated survey.</strong> This page ships with the structure in place but no data yet — once the scheduled workflow runs (or is triggered manually from the Actions tab), every card below fills in on its own.</p>
+  </section>
+
+  <section class="signal-section" aria-label="Overall long-term signal">
+    <div class="signal-card">
+      <div class="signal-heading">
+        <h2>Long-term signal</h2>
+        <p class="section-note">Earliest three years of records vs the most recent three, per species — the same improving/declining/no-change convention used in the UK Biodiversity Indicators (JNCC/Defra).</p>
+      </div>
+      <div class="signal-bars" id="signalBars"></div>
+    </div>
   </section>
 
   <section class="groups-section" aria-label="Trends by taxonomic group">
     <div class="section-heading">
       <h2>Trends by group</h2>
-      <p class="section-note">Recorded NI observations per year, summed across every tracked species in each group.</p>
+      <p class="section-note">Recorded NI observations per year, summed across every tracked species in each group. Hover any bar for the exact count.</p>
     </div>
     <div class="groups-grid" id="groupsGrid"></div>
   </section>
@@ -40,12 +50,15 @@
   <section class="compare-section" aria-label="Compare species">
     <div class="section-heading">
       <h2>Compare species</h2>
-      <p class="section-note">Pick a group, then toggle species on or off to overlay their trends.</p>
+      <p class="section-note">Pick a group, toggle species on or off, and read the legend to isolate any single line.</p>
     </div>
     <div class="compare-tabs" id="compareTabs"></div>
     <div class="compare-chips" id="compareChips"></div>
-    <div class="chart-wrap compare-chart-wrap"><canvas id="compareChart"></canvas></div>
-    <p class="no-results" id="compareEmptyNote" hidden>Select at least one species above to see a comparison.</p>
+    <div class="compare-chart-card">
+      <div class="compare-chart-wrap" id="compareChartWrap"></div>
+      <div class="compare-legend" id="compareLegend"></div>
+      <p class="no-results" id="compareEmptyNote" hidden>Select at least one species above to see a comparison.</p>
+    </div>
   </section>
 
   <section class="risk-section" aria-label="Pest and pathogen watch">
@@ -83,24 +96,24 @@
     <h2>How to read this</h2>
     <div class="methodology-grid">
       <div class="method-card">
+        <h3>Two trend horizons</h3>
+        <p>Following UK Biodiversity Indicator practice, every species gets a <strong>short-term</strong> read (latest complete year vs the preceding 5-year average) and, once enough history exists, a <strong>long-term</strong> read (earliest 3 years on record vs the most recent 3). They can disagree — a species can be down this year but improving over the long run, or vice versa.</p>
+      </div>
+      <div class="method-card">
         <h3>Observation counts</h3>
-        <p>Sourced from <a href="https://www.gbif.org/" target="_blank" rel="noopener">GBIF</a>, filtered to a Northern Ireland bounding box plus a UK country filter. These counts reflect <em>recorded</em> observations, not population size — a fall can mean fewer organisms, fewer people out recording, or both. Treat a flagged decline as a prompt to look closer, not a population estimate.</p>
+        <p>Sourced from <a href="https://www.gbif.org/" target="_blank" rel="noopener">GBIF</a>, filtered to a Northern Ireland bounding box plus a UK country filter. These reflect <em>recorded</em> observations, not population size — a fall can mean fewer organisms, fewer people recording, or both.</p>
       </div>
       <div class="method-card">
         <h3>GenBank sequences</h3>
-        <p>Sourced from <a href="https://www.ncbi.nlm.nih.gov/genbank/" target="_blank" rel="noopener">NCBI GenBank</a>. This tracks global research and sequencing attention on a species, not field abundance — counts almost never fall, so we describe them as steady, accelerating, or stalled rather than rising or declining.</p>
-      </div>
-      <div class="method-card">
-        <h3>How alerts are set</h3>
-        <p>Only complete calendar years feed the % change shown for observations — the current year-to-date is displayed on charts but excluded from alerts, so a partial year is never mistaken for a decline. Species with an <strong>invasive-species watch flag</strong> are alerted the moment any record appears at all.</p>
+        <p>Sourced from <a href="https://www.ncbi.nlm.nih.gov/genbank/" target="_blank" rel="noopener">NCBI GenBank</a>. Tracks research and sequencing attention, not field abundance — counts almost never fall, so they're described as steady, accelerating, or stalled.</p>
       </div>
       <div class="method-card">
         <h3>Pest &amp; pathogen status</h3>
-        <p>Regulatory labels here are a starting reference, not a live legal register. Always verify current status against the <a href="https://www.daera-ni.gov.uk/topics/northern-ireland-plant-health-risk-register" target="_blank" rel="noopener">NI Plant Health Risk Register</a> and the Bee Diseases and Pests Control Order (NI) 2007 before acting on it.</p>
+        <p>Regulatory labels here are a starting reference, not a live legal register. Always verify against the <a href="https://www.daera-ni.gov.uk/topics/northern-ireland-plant-health-risk-register" target="_blank" rel="noopener">NI Plant Health Risk Register</a> and the Bee Diseases and Pests Control Order (NI) 2007.</p>
       </div>
       <div class="method-card">
-        <h3>Data refresh</h3>
-        <p>An automated job re-fetches every figure on a schedule (see the repository's GitHub Actions workflow) and commits the result. Nothing needs to be run by hand.</p>
+        <h3>Data refresh &amp; provenance</h3>
+        <p>An automated, publicly-viewable job re-fetches every figure on a schedule and commits the result — the full pipeline, thresholds and species list are all on <span id="repoLinkPlaceholder2">GitHub</span> for anyone to audit.</p>
       </div>
     </div>
   </section>
@@ -108,10 +121,9 @@
 </main>
 
 <footer class="site-footer">
-  <p>Data: <a href="https://www.gbif.org/" target="_blank" rel="noopener">GBIF.org</a> &middot; <a href="https://www.ncbi.nlm.nih.gov/genbank/" target="_blank" rel="noopener">NCBI GenBank</a> &middot; <a href="https://www.daera-ni.gov.uk/topics/northern-ireland-plant-health-risk-register" target="_blank" rel="noopener">NI Plant Health Risk Register</a>. Source and species list on <span id="repoLinkPlaceholder">GitHub</span>.</p>
+  <p>Data: <a href="https://www.gbif.org/" target="_blank" rel="noopener">GBIF.org</a> &middot; <a href="https://www.ncbi.nlm.nih.gov/genbank/" target="_blank" rel="noopener">NCBI GenBank</a> &middot; <a href="https://www.daera-ni.gov.uk/topics/northern-ireland-plant-health-risk-register" target="_blank" rel="noopener">NI Plant Health Risk Register</a>. Trend methodology follows the <a href="https://jncc.gov.uk/our-work/uk-biodiversity-indicators/" target="_blank" rel="noopener">UK Biodiversity Indicators</a> convention. Source and species list on <span id="repoLinkPlaceholder">GitHub</span>.</p>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
