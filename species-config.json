@@ -1,5 +1,5 @@
 {
-  "_readme": "Edit this list to add/remove tracked species. scientificName must match GBIF/NCBI usage. category is a broad taxonomic group (Fungi, Bacteria, Birds, Invertebrates, Fish, Mammals, Amphibians) and drives both the browse groupings and the group-level trend charts. trackOccurrences=false skips the GBIF call (use for organisms rarely field-recorded, e.g. bacteria). trackSequences=false skips NCBI. invasiveAlert=true triggers a high-priority alert on ANY occurrence record rather than needing a % change (use for species that are absent or newly-arrived and where a single detection matters).",
+  "_readme": "Edit this list to add/remove tracked species. scientificName must match GBIF/NCBI usage. category is a broad taxonomic group and drives the browse groupings, group trend charts, and comparison tool. trackOccurrences=false skips the GBIF call (organisms rarely field-recorded, e.g. bacteria). trackSequences=false skips NCBI. invasiveAlert=true triggers a high-priority alert on ANY occurrence record rather than needing a percent change. riskStatus (optional) puts a species in the Pest & Pathogen Watch section with that status label - cross-check against the live NI Plant Health Risk Register (daera-ni.gov.uk) and Bee Diseases and Pests Control Order (NI) 2007 before treating any status here as current/authoritative; this list is a starting point, not the register itself.",
   "boundary": {
     "note": "Simple bounding box for Northern Ireland + country=GB filter. See scripts/fetch_gbif.py comments for why this approach was chosen and how to refine it.",
     "minLat": 53.95,
@@ -13,17 +13,19 @@
     { "scientificName": "Bombus pascuorum", "commonName": "Common carder bee", "category": "Invertebrates", "trackOccurrences": true, "trackSequences": true },
     { "scientificName": "Bombus lucorum", "commonName": "White-tailed bumblebee", "category": "Invertebrates", "trackOccurrences": true, "trackSequences": true },
     { "scientificName": "Bombus lapidarius", "commonName": "Red-tailed bumblebee", "category": "Invertebrates", "trackOccurrences": true, "trackSequences": true },
-    { "scientificName": "Varroa destructor", "commonName": "Varroa mite", "category": "Invertebrates", "trackOccurrences": true, "trackSequences": true },
-    { "scientificName": "Vespa velutina", "commonName": "Asian hornet", "category": "Invertebrates", "trackOccurrences": true, "trackSequences": true, "invasiveAlert": true, "note": "First confirmed NI sighting: Dundonald, Belfast, Oct 2025" },
-    { "scientificName": "Ips typographus", "commonName": "European spruce bark beetle", "category": "Invertebrates", "trackOccurrences": true, "trackSequences": true, "invasiveAlert": true },
+    { "scientificName": "Varroa destructor", "commonName": "Varroa mite", "category": "Invertebrates", "trackOccurrences": true, "trackSequences": true, "riskStatus": "Regulated bee pest (Bee Diseases and Pests Control Order (NI) 2007)" },
+    { "scientificName": "Vespa velutina", "commonName": "Asian hornet", "category": "Invertebrates", "trackOccurrences": true, "trackSequences": true, "invasiveAlert": true, "note": "First confirmed NI sighting: Dundonald, Belfast, Oct 2025", "riskStatus": "Non-native, notifiable - Asian Hornet Action Plan" },
+    { "scientificName": "Ips typographus", "commonName": "European spruce bark beetle", "category": "Invertebrates", "trackOccurrences": true, "trackSequences": true, "invasiveAlert": true, "riskStatus": "NI Plant Health Risk Register - quarantine pest, not established in NI" },
+    { "scientificName": "Anoplophora glabripennis", "commonName": "Asian longhorn beetle", "category": "Invertebrates", "trackOccurrences": true, "trackSequences": true, "invasiveAlert": true, "riskStatus": "Union quarantine pest - past GB interceptions/eradications, not established in NI" },
     { "scientificName": "Harmonia axyridis", "commonName": "Harlequin ladybird", "category": "Invertebrates", "trackOccurrences": true, "trackSequences": true },
-    { "scientificName": "Dendroctonus micans", "commonName": "Great spruce bark beetle", "category": "Invertebrates", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Dendroctonus micans", "commonName": "Great spruce bark beetle", "category": "Invertebrates", "trackOccurrences": true, "trackSequences": true, "riskStatus": "Established - managed under biological control programme" },
 
-    { "scientificName": "Paenibacillus larvae", "commonName": "American foulbrood (bacterium)", "category": "Bacteria", "trackOccurrences": false, "trackSequences": true },
-    { "scientificName": "Melissococcus plutonius", "commonName": "European foulbrood (bacterium)", "category": "Bacteria", "trackOccurrences": false, "trackSequences": true },
+    { "scientificName": "Paenibacillus larvae", "commonName": "American foulbrood (bacterium)", "category": "Bacteria", "trackOccurrences": false, "trackSequences": true, "riskStatus": "Notifiable bee disease (Bee Diseases and Pests Control Order (NI) 2007)" },
+    { "scientificName": "Melissococcus plutonius", "commonName": "European foulbrood (bacterium)", "category": "Bacteria", "trackOccurrences": false, "trackSequences": true, "riskStatus": "Notifiable bee disease (Bee Diseases and Pests Control Order (NI) 2007)" },
+    { "scientificName": "Xylella fastidiosa", "commonName": "Xylella (bacterium)", "category": "Bacteria", "trackOccurrences": false, "trackSequences": true, "invasiveAlert": true, "riskStatus": "Union priority quarantine pest - not detected in NI/UK" },
 
-    { "scientificName": "Hymenoscyphus fraxineus", "commonName": "Ash dieback fungus", "category": "Fungi", "trackOccurrences": true, "trackSequences": true },
-    { "scientificName": "Phytophthora ramorum", "commonName": "Sudden oak death pathogen", "category": "Fungi", "trackOccurrences": true, "trackSequences": true },
+    { "scientificName": "Hymenoscyphus fraxineus", "commonName": "Ash dieback fungus", "category": "Fungi", "trackOccurrences": true, "trackSequences": true, "riskStatus": "NI Plant Health Risk Register - established, high-priority tree health concern" },
+    { "scientificName": "Phytophthora ramorum", "commonName": "Sudden oak death pathogen", "category": "Fungi", "trackOccurrences": true, "trackSequences": true, "riskStatus": "NI Plant Health Risk Register - regulated, subject to statutory action" },
     { "scientificName": "Nosema apis", "commonName": "Nosema apis", "category": "Fungi", "trackOccurrences": false, "trackSequences": true },
     { "scientificName": "Nosema ceranae", "commonName": "Nosema ceranae", "category": "Fungi", "trackOccurrences": false, "trackSequences": true },
 
