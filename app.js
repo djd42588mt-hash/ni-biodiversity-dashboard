@@ -8,7 +8,19 @@
     seqData: null,
     activeChart1: null,
     activeChart2: null,
+    groupCharts: [],
   };
+
+  const GROUP_PALETTE = {
+    Invertebrates: "#3B6B4F",
+    Mammals: "#A9691B",
+    Fungi: "#7A5C3E",
+    Birds: "#2E6E8E",
+    Bacteria: "#8E4A5A",
+    Fish: "#2E7D7B",
+    Amphibians: "#5B7A2E",
+  };
+  const DEFAULT_GROUP_COLOR = "#5B5148";
 
   const css = getComputedStyle(document.documentElement);
   const COLORS = {
@@ -95,6 +107,104 @@
       `;
       card.addEventListener("click", () => showSpeciesDetail(a.scientificName));
       rail.appendChild(card);
+    });
+  }
+
+  function buildGroupAggregates() {
+    const groups = {};
+    (state.config.species || []).forEach((sp) => {
+      const cat = sp.category || "Other";
+      if (!groups[cat]) groups[cat] = { byYear: {}, totalRecords: 0, speciesCount: 0 };
+      groups[cat].speciesCount += 1;
+      const occ = state.occData.species && state.occData.species[sp.scientificName];
+      if (occ) {
+        groups[cat].totalRecords += occ.totalRecords || 0;
+        Object.entries(occ.byYear || {}).forEach(([y, c]) => {
+          groups[cat].byYear[y] = (groups[cat].byYear[y] || 0) + (c || 0);
+        });
+      }
+    });
+    return groups;
+  }
+
+  function classifyGroupTrend(byYear, currentYear) {
+    const complete = {};
+    Object.entries(byYear).forEach(([y, c]) => {
+      if (c != null && /^\d+$/.test(y) && Number(y) < currentYear) complete[y] = c;
+    });
+    const years = Object.keys(complete).sort();
+    if (years.length < 2) return { label: "Not enough complete years yet", pctChange: null };
+
+    const latestYear = years[years.length - 1];
+    const latestCount = complete[latestYear];
+    const baselineYears = years.slice(Math.max(0, years.length - 6), years.length - 1);
+    const baselineAvg = baselineYears.reduce((s, y) => s + complete[y], 0) / (baselineYears.length || 1);
+
+    if (!baselineAvg) {
+      return latestCount > 0 ? { label: "New records after a baseline of none", pctChange: null } : { label: "No records yet", pctChange: null };
+    }
+    const pct = Math.round(((latestCount - baselineAvg) / baselineAvg) * 100);
+    let label;
+    if (pct <= -25) label = `Down ${Math.abs(pct)}% vs the ${baselineYears.length}-year average`;
+    else if (pct >= 50) label = `Up ${pct}% vs the ${baselineYears.length}-year average`;
+    else label = "Broadly stable";
+    return { label, pctChange: pct };
+  }
+
+  function renderGroups() {
+    const grid = document.getElementById("groupsGrid");
+    grid.innerHTML = "";
+    if (!state.occData || !state.occData.generatedAt) {
+      grid.innerHTML = `<p class="no-results">Group charts will appear here once the first automated survey has run.</p>`;
+      return;
+    }
+
+    const groups = buildGroupAggregates();
+    const currentYear = state.summary.currentYear || new Date().getFullYear();
+    state.groupCharts.forEach((c) => c.destroy());
+    state.groupCharts = [];
+
+    Object.keys(groups).sort().forEach((groupName, idx) => {
+      const g = groups[groupName];
+      const trend = classifyGroupTrend(g.byYear, currentYear);
+      const color = GROUP_PALETTE[groupName] || DEFAULT_GROUP_COLOR;
+
+      const card = document.createElement("div");
+      card.className = "specimen-card group-card";
+      const canvasId = `groupChart_${idx}`;
+      card.innerHTML = `
+        <h3>${escapeHtml(groupName)}</h3>
+        <span class="group-meta">${g.speciesCount} species tracked &middot; ${g.totalRecords.toLocaleString()} NI records</span>
+        <div class="group-chart-wrap"><canvas id="${canvasId}"></canvas></div>
+        <p class="group-trend-label">${escapeHtml(trend.label)}</p>
+      `;
+      grid.appendChild(card);
+
+      const series = yearsAndValues(g.byYear, 15);
+      const cyStr = String(currentYear);
+      if (window.Chart) {
+        const chart = new Chart(document.getElementById(canvasId), {
+          type: "bar",
+          data: {
+            labels: series.labels,
+            datasets: [{
+              data: series.values,
+              backgroundColor: series.labels.map((y) => (y === cyStr ? color + "59" : color)),
+              borderRadius: 2,
+            }],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false }, tooltip: { titleFont: { family: "IBM Plex Mono" }, bodyFont: { family: "IBM Plex Mono" } } },
+            scales: {
+              x: { ticks: { display: false }, grid: { display: false } },
+              y: { display: false, beginAtZero: true },
+            },
+          },
+        });
+        state.groupCharts.push(chart);
+      }
     });
   }
 
@@ -196,6 +306,7 @@
     const occTrend = rec.occurrenceTrend;
     const seqTrend = rec.sequenceTrend;
 
+    document.querySelector(".groups-section").hidden = true;
     document.querySelector(".alerts-section").hidden = true;
     document.querySelector(".search-section").hidden = true;
     document.getElementById("categoryBrowser").hidden = true;
@@ -297,6 +408,7 @@
 
   function backToBrowse() {
     document.getElementById("speciesDetail").hidden = true;
+    document.querySelector(".groups-section").hidden = false;
     document.querySelector(".alerts-section").hidden = false;
     document.querySelector(".search-section").hidden = false;
     document.getElementById("categoryBrowser").hidden = false;
@@ -321,6 +433,7 @@
     document.getElementById("lastUpdated").textContent = formatUpdated(summary.generatedAt);
     document.getElementById("pendingBanner").hidden = !!summary.generatedAt && summary.speciesCount > 0;
 
+    renderGroups();
     renderAlerts();
     renderCategoryBrowser();
     setupSearch();
