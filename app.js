@@ -242,8 +242,6 @@
     container.appendChild(svg);
   }
 
-
-
   function renderKPIs() {
     const kpi = document.getElementById("kpiStrip");
     const species = state.config.species || [];
@@ -446,8 +444,6 @@
     renderGridHeatmap(wrap, g.grid, GROUP_PALETTE[state.mapGroup] || DEFAULT_COLOR, { height: 380 });
     caption.textContent = `${state.mapGroup}: based on a sample of ${g.gridSampleSize || 0} recent geo-tagged records across Northern Ireland. Darker cells = more records in the sample, not a precise density estimate.`;
   }
-
-
 
   // ---------------- Pest & pathogen watch ----------------
 
