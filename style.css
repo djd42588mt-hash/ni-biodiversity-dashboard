@@ -150,6 +150,29 @@ main { max-width: 960px; margin: 0 auto; padding: 0 1.25rem 4rem; }
 .specimen-card.tone-alert { border-left: 4px solid var(--brick); background: #F4E4D9; }
 .specimen-card.tone-neutral { border-left: 4px solid #9A9284; }
 
+/* ---------- Group trend cards ---------- */
+
+.groups-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.9rem;
+}
+
+.group-card { cursor: default; }
+
+.group-card h3 { font-size: 1.05rem; margin-bottom: 0.1rem; }
+.group-card .group-meta {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+.group-card .group-trend-label {
+  font-size: 0.82rem;
+  margin: 0.5rem 0 0;
+}
+.group-chart-wrap { position: relative; height: 110px; margin-top: 0.4rem; }
 .alerts-rail {
   display: flex;
   gap: 0.9rem;
