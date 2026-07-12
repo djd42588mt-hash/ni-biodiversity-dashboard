@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-12T08:36:24Z",
+  "generatedAt": "2026-07-12T08:59:04Z",
   "species": {
     "Apis mellifera": {
       "totalSequences": 398674,
@@ -145,6 +145,24 @@
       "niOriginTotal": 0,
       "error": null
     },
+    "Anoplophora glabripennis": {
+      "totalSequences": 46486,
+      "byYear": {
+        "2016": 17569,
+        "2017": 4983,
+        "2018": 13867,
+        "2019": 0,
+        "2020": 4,
+        "2021": 291,
+        "2022": 38,
+        "2023": 0,
+        "2024": 0,
+        "2025": 12,
+        "2026": 38
+      },
+      "niOriginTotal": 0,
+      "error": null
+    },
     "Harmonia axyridis": {
       "totalSequences": 29410,
       "byYear": {
@@ -213,6 +231,24 @@
         "2024": 0,
         "2025": 6962,
         "2026": 2
+      },
+      "niOriginTotal": 0,
+      "error": null
+    },
+    "Xylella fastidiosa": {
+      "totalSequences": 35461,
+      "byYear": {
+        "2016": 2112,
+        "2017": 94,
+        "2018": 328,
+        "2019": 10845,
+        "2020": 2319,
+        "2021": 690,
+        "2022": 1070,
+        "2023": 10147,
+        "2024": 295,
+        "2025": 66,
+        "2026": 100
       },
       "niOriginTotal": 0,
       "error": null

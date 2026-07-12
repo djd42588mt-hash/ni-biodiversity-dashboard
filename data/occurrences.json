@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-12T08:32:41Z",
+  "generatedAt": "2026-07-12T08:54:48Z",
   "boundary": {
     "type": "bbox+country",
     "country": "GB",
@@ -250,6 +250,11 @@
       "error": null
     },
     "Ips typographus": {
+      "byYear": {},
+      "totalRecords": 0,
+      "error": null
+    },
+    "Anoplophora glabripennis": {
       "byYear": {},
       "totalRecords": 0,
       "error": null

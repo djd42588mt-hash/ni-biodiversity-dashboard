@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-12T08:36:24Z",
+  "generatedAt": "2026-07-12T08:59:04Z",
   "currentYear": 2026,
-  "speciesCount": 29,
+  "speciesCount": 31,
   "alerts": [
     {
       "scientificName": "Phytophthora ramorum",
@@ -211,6 +211,25 @@
       "totalSequences": 44187,
       "niOriginSequences": 0
     },
+    "Anoplophora glabripennis": {
+      "commonName": "Asian longhorn beetle",
+      "category": "Invertebrates",
+      "occurrenceTrend": {
+        "status": "watch_no_detection",
+        "label": "No NI records to date - remains on the biosecurity watch list",
+        "pctChange": null,
+        "latestCompleteYear": null,
+        "latestCompleteYearCount": 0,
+        "currentYearToDateCount": null
+      },
+      "sequenceTrend": {
+        "status": "steady",
+        "label": "Sequencing activity continuing at a steady pace"
+      },
+      "totalRecords": 0,
+      "totalSequences": 46486,
+      "niOriginSequences": 0
+    },
     "Harmonia axyridis": {
       "commonName": "Harlequin ladybird",
       "category": "Invertebrates",
@@ -271,6 +290,18 @@
       },
       "totalRecords": null,
       "totalSequences": 8040,
+      "niOriginSequences": 0
+    },
+    "Xylella fastidiosa": {
+      "commonName": "Xylella (bacterium)",
+      "category": "Bacteria",
+      "occurrenceTrend": null,
+      "sequenceTrend": {
+        "status": "steady",
+        "label": "Sequencing activity continuing at a steady pace"
+      },
+      "totalRecords": null,
+      "totalSequences": 35461,
       "niOriginSequences": 0
     },
     "Hymenoscyphus fraxineus": {
