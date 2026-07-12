@@ -172,7 +172,106 @@ main { max-width: 960px; margin: 0 auto; padding: 0 1.25rem 4rem; }
   font-size: 0.82rem;
   margin: 0.5rem 0 0;
 }
-.group-chart-wrap { position: relative; height: 110px; margin-top: 0.4rem; }
+.group-chart-wrap { position: relative; height: 170px; margin-top: 0.4rem; }
+
+/* ---------- KPI strip (header) ---------- */
+
+.kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.7rem;
+  margin-top: 1.4rem;
+  max-width: 640px;
+}
+.kpi-box {
+  border-top: 2px solid var(--amber);
+  padding-top: 0.5rem;
+}
+.kpi-box .kpi-value { font-family: var(--font-mono); font-size: 1.5rem; font-weight: 600; color: var(--cream); }
+.kpi-box .kpi-label { font-size: 0.76rem; color: var(--cream-soft); }
+
+/* ---------- Compare species ---------- */
+
+.compare-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+.compare-tab {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--bg-dark-line);
+  background: transparent;
+  color: var(--cream-soft);
+  cursor: pointer;
+}
+.compare-tab.active {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.compare-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.1rem;
+}
+.compare-chip {
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--parchment-line);
+  background: var(--parchment);
+  color: var(--ink-soft);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.compare-chip .swatch {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid var(--ink-soft);
+}
+.compare-chip.selected {
+  color: var(--ink);
+  font-weight: 600;
+  border-color: currentColor;
+}
+.compare-chip.selected .swatch { border-color: transparent; }
+
+.compare-chart-wrap { height: 320px; background: var(--parchment); border-radius: var(--radius); padding: 1rem; box-shadow: var(--shadow-card); }
+
+/* ---------- Pest & pathogen watch ---------- */
+
+.risk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 0.9rem;
+}
+.risk-card .risk-status {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  color: var(--brick-deep);
+  display: block;
+  margin: 0.3rem 0 0.5rem;
+  line-height: 1.35;
+}
+.risk-card.watch-species .risk-status { color: var(--amber-deep); }
+.risk-card .risk-detect-line { font-size: 0.82rem; margin: 0.4rem 0 0; }
+
+/* ---------- Species-card sparkline ---------- */
+
+.card-sparkline { height: 34px; margin: 0.4rem 0 0.3rem; }
+
+
 .alerts-rail {
   display: flex;
   gap: 0.9rem;
