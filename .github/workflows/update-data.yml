@@ -1,13 +1,15 @@
-
 name: Update biodiversity data
 
 on:
   schedule:
+    # Runs weekly, Monday 03:00 UTC. Change the cron below for a different
+    # cadence (e.g. '0 3 * * *' for daily) - see README.md for guidance on
+    # why weekly is a sensible default.
     - cron: '0 3 * * 1'
-  workflow_dispatch: {}
+  workflow_dispatch: {}   # lets you trigger a run manually from the Actions tab
 
 permissions:
-  contents: write
+  contents: write   # required so this workflow can commit the refreshed data back
 
 jobs:
   update-data:
@@ -27,6 +29,9 @@ jobs:
       - name: Fetch NCBI sequence data
         run: python3 scripts/fetch_ncbi.py
 
+      - name: Fetch comprehensive group-wide GBIF data (all species, not just curated)
+        run: python3 scripts/fetch_gbif_groups.py
+
       - name: Analyse trends and build summary
         run: python3 scripts/analyze_trends.py
 
@@ -41,4 +46,3 @@ jobs:
             git commit -m "Automated data refresh: $(date -u +'%Y-%m-%d %H:%M UTC')"
             git push
           fi
-
