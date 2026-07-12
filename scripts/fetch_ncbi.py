@@ -1,6 +1,23 @@
 #!/usr/bin/env python3
 """
 Fetches GenBank (nuccore) sequence counts per species from NCBI E-utilities.
+
+What this tracks and why it's a different signal from the GBIF data:
+GenBank sequence counts are a proxy for research/sequencing attention on a
+species, not field abundance - they almost never go down (records aren't
+usually retracted), so "decline" framing doesn't apply here. Instead we
+track: (a) total sequences ever submitted (cumulative growth), (b) sequences
+added per year for roughly the last decade (to show whether attention is
+accelerating, flat, or stalled), and (c) a best-effort count of sequences
+whose metadata mentions Northern Ireland specifically (relevant to AFBI's own
+reference-database work) - this is a free-text match on GenBank's `country`
+qualifier and will under/over-count somewhat; treat it as indicative, not
+exact.
+
+Rate limiting: NCBI asks for <=3 requests/second without an API key. We sleep
+between calls accordingly. If you add many more species, get a free NCBI API
+key and add it as the api_key parameter to raise this to 10/second - see
+README.md.
 """
 import json
 import os
@@ -16,13 +33,14 @@ CONFIG_PATH = os.path.join(ROOT_DIR, "species-config.json")
 OUTPUT_PATH = os.path.join(ROOT_DIR, "data", "sequences.json")
 
 ESEARCH_BASE = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
-REQUEST_DELAY_SECONDS = 0.4
+REQUEST_DELAY_SECONDS = 0.4  # ~2.5 req/sec, safely under the 3/sec no-key limit
 YEARS_OF_HISTORY = 10
-CONTACT_EMAIL = "set-your-email-here@example.com"
+CONTACT_EMAIL = "set-your-email-here@example.com"  # NCBI asks tools to identify themselves
 USER_AGENT = "NI-Biodiversity-Dashboard/1.0"
 
 
 def parse_count(response_json):
+    """Pure logic: pull the integer count out of an esearch JSON response."""
     try:
         return int(response_json["esearchresult"]["count"])
     except (KeyError, ValueError, TypeError):
