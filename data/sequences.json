@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-13T12:45:34Z",
+  "generatedAt": "2026-07-20T12:06:49Z",
   "species": {
     "Apis mellifera": {
-      "totalSequences": 398674,
+      "totalSequences": 398679,
       "byYear": {
         "2016": 4993,
         "2017": 649,
@@ -14,13 +14,13 @@
         "2023": 1050,
         "2024": 2170,
         "2025": 1236,
-        "2026": 463
+        "2026": 468
       },
       "niOriginTotal": 1,
       "error": null
     },
     "Bombus terrestris": {
-      "totalSequences": 303494,
+      "totalSequences": 303495,
       "byYear": {
         "2016": 64,
         "2017": 3105,
@@ -32,7 +32,7 @@
         "2023": 18,
         "2024": 39,
         "2025": 192,
-        "2026": 679
+        "2026": 680
       },
       "niOriginTotal": 0,
       "error": null
@@ -164,7 +164,7 @@
       "error": null
     },
     "Harmonia axyridis": {
-      "totalSequences": 29410,
+      "totalSequences": 29411,
       "byYear": {
         "2016": 205,
         "2017": 81,
@@ -176,7 +176,7 @@
         "2023": 34,
         "2024": 9,
         "2025": 25,
-        "2026": 4
+        "2026": 5
       },
       "niOriginTotal": 0,
       "error": null
@@ -200,7 +200,7 @@
       "error": null
     },
     "Paenibacillus larvae": {
-      "totalSequences": 14926,
+      "totalSequences": 14900,
       "byYear": {
         "2016": 55,
         "2017": 741,
@@ -236,7 +236,7 @@
       "error": null
     },
     "Xylella fastidiosa": {
-      "totalSequences": 35461,
+      "totalSequences": 35490,
       "byYear": {
         "2016": 2112,
         "2017": 94,
@@ -248,7 +248,7 @@
         "2023": 10147,
         "2024": 295,
         "2025": 66,
-        "2026": 100
+        "2026": 129
       },
       "niOriginTotal": 0,
       "error": null
@@ -272,7 +272,7 @@
       "error": null
     },
     "Phytophthora ramorum": {
-      "totalSequences": 28377,
+      "totalSequences": 28373,
       "byYear": {
         "2016": 4,
         "2017": 5021,
@@ -283,7 +283,7 @@
         "2022": 11,
         "2023": 7,
         "2024": 15554,
-        "2025": 195,
+        "2025": 191,
         "2026": 73
       },
       "niOriginTotal": 7,
@@ -308,7 +308,7 @@
       "error": null
     },
     "Nosema ceranae": {
-      "totalSequences": 8404,
+      "totalSequences": 8407,
       "byYear": {
         "2016": 18,
         "2017": 67,
@@ -320,7 +320,7 @@
         "2023": 42,
         "2024": 240,
         "2025": 33,
-        "2026": 43
+        "2026": 46
       },
       "niOriginTotal": 0,
       "error": null
@@ -380,7 +380,7 @@
       "error": null
     },
     "Salmo salar": {
-      "totalSequences": 1050826,
+      "totalSequences": 1050828,
       "byYear": {
         "2016": 70,
         "2017": 74,
@@ -392,7 +392,7 @@
         "2023": 146,
         "2024": 353,
         "2025": 231,
-        "2026": 51144
+        "2026": 51146
       },
       "niOriginTotal": 0,
       "error": null
