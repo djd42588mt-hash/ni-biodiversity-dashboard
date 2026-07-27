@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-20T12:06:49Z",
+  "generatedAt": "2026-07-27T13:34:36Z",
   "species": {
     "Apis mellifera": {
       "totalSequences": 398679,
@@ -272,7 +272,7 @@
       "error": null
     },
     "Phytophthora ramorum": {
-      "totalSequences": 28373,
+      "totalSequences": 28377,
       "byYear": {
         "2016": 4,
         "2017": 5021,
@@ -283,7 +283,7 @@
         "2022": 11,
         "2023": 7,
         "2024": 15554,
-        "2025": 191,
+        "2025": 195,
         "2026": 73
       },
       "niOriginTotal": 7,
@@ -380,7 +380,7 @@
       "error": null
     },
     "Salmo salar": {
-      "totalSequences": 1050828,
+      "totalSequences": 1050829,
       "byYear": {
         "2016": 70,
         "2017": 74,
@@ -392,7 +392,7 @@
         "2023": 146,
         "2024": 353,
         "2025": 231,
-        "2026": 51146
+        "2026": 51147
       },
       "niOriginTotal": 0,
       "error": null
@@ -452,7 +452,7 @@
       "error": null
     },
     "Lepus timidus": {
-      "totalSequences": 1344,
+      "totalSequences": 1347,
       "byYear": {
         "2016": 1,
         "2017": 365,
@@ -464,7 +464,7 @@
         "2023": 36,
         "2024": 74,
         "2025": 0,
-        "2026": 2
+        "2026": 5
       },
       "niOriginTotal": 0,
       "error": null
