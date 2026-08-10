@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-03T13:34:27Z",
+  "generatedAt": "2026-08-10T08:22:54Z",
   "species": {
     "Apis mellifera": {
       "totalSequences": 398679,
@@ -218,7 +218,7 @@
       "error": null
     },
     "Melissococcus plutonius": {
-      "totalSequences": 8040,
+      "totalSequences": 8045,
       "byYear": {
         "2016": 6,
         "2017": 0,
@@ -230,13 +230,13 @@
         "2023": 9,
         "2024": 0,
         "2025": 6962,
-        "2026": 2
+        "2026": 7
       },
       "niOriginTotal": 0,
       "error": null
     },
     "Xylella fastidiosa": {
-      "totalSequences": 35490,
+      "totalSequences": 35494,
       "byYear": {
         "2016": 2112,
         "2017": 94,
@@ -248,13 +248,13 @@
         "2023": 10147,
         "2024": 295,
         "2025": 66,
-        "2026": 129
+        "2026": 133
       },
       "niOriginTotal": 0,
       "error": null
     },
     "Hymenoscyphus fraxineus": {
-      "totalSequences": 1738,
+      "totalSequences": 1739,
       "byYear": {
         "2016": 53,
         "2017": 164,
@@ -266,7 +266,7 @@
         "2023": 4,
         "2024": 14,
         "2025": 101,
-        "2026": 0
+        "2026": 1
       },
       "niOriginTotal": 0,
       "error": null
@@ -344,7 +344,7 @@
       "error": null
     },
     "Crex crex": {
-      "totalSequences": 21,
+      "totalSequences": 102,
       "byYear": {
         "2016": 1,
         "2017": 0,
@@ -356,7 +356,7 @@
         "2023": 0,
         "2024": 0,
         "2025": 1,
-        "2026": 1
+        "2026": 82
       },
       "niOriginTotal": 0,
       "error": null
@@ -542,7 +542,7 @@
       "error": null
     },
     "Lissotriton vulgaris": {
-      "totalSequences": 1700,
+      "totalSequences": 81343,
       "byYear": {
         "2016": 50,
         "2017": 0,
@@ -554,7 +554,7 @@
         "2023": 0,
         "2024": 18,
         "2025": 0,
-        "2026": 4
+        "2026": 79647
       },
       "niOriginTotal": 0,
       "error": null
