@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-10T08:22:54Z",
+  "generatedAt": "2026-08-17T05:15:48Z",
   "species": {
     "Apis mellifera": {
-      "totalSequences": 398679,
+      "totalSequences": 398681,
       "byYear": {
         "2016": 4993,
         "2017": 649,
@@ -14,7 +14,7 @@
         "2023": 1050,
         "2024": 2170,
         "2025": 1236,
-        "2026": 468
+        "2026": 470
       },
       "niOriginTotal": 1,
       "error": null
@@ -92,10 +92,10 @@
       "error": null
     },
     "Varroa destructor": {
-      "totalSequences": 39150,
+      "totalSequences": 59419,
       "byYear": {
         "2016": 174,
-        "2017": 37032,
+        "2017": 22394,
         "2018": 74,
         "2019": 16,
         "2020": 14,
@@ -104,7 +104,7 @@
         "2023": 385,
         "2024": 37,
         "2025": 23,
-        "2026": 22
+        "2026": 34929
       },
       "niOriginTotal": 0,
       "error": null
@@ -128,7 +128,7 @@
       "error": null
     },
     "Ips typographus": {
-      "totalSequences": 44188,
+      "totalSequences": 44189,
       "byYear": {
         "2016": 0,
         "2017": 0,
@@ -140,7 +140,7 @@
         "2023": 7,
         "2024": 4,
         "2025": 0,
-        "2026": 29063
+        "2026": 29064
       },
       "niOriginTotal": 0,
       "error": null
@@ -164,7 +164,7 @@
       "error": null
     },
     "Harmonia axyridis": {
-      "totalSequences": 29414,
+      "totalSequences": 29420,
       "byYear": {
         "2016": 205,
         "2017": 81,
@@ -176,7 +176,7 @@
         "2023": 34,
         "2024": 9,
         "2025": 25,
-        "2026": 8
+        "2026": 14
       },
       "niOriginTotal": 0,
       "error": null
@@ -218,7 +218,7 @@
       "error": null
     },
     "Melissococcus plutonius": {
-      "totalSequences": 8045,
+      "totalSequences": 8081,
       "byYear": {
         "2016": 6,
         "2017": 0,
@@ -230,7 +230,7 @@
         "2023": 9,
         "2024": 0,
         "2025": 6962,
-        "2026": 7
+        "2026": 43
       },
       "niOriginTotal": 0,
       "error": null
@@ -380,7 +380,7 @@
       "error": null
     },
     "Salmo salar": {
-      "totalSequences": 1050864,
+      "totalSequences": 1050865,
       "byYear": {
         "2016": 70,
         "2017": 74,
@@ -392,7 +392,7 @@
         "2023": 146,
         "2024": 353,
         "2025": 231,
-        "2026": 51182
+        "2026": 51183
       },
       "niOriginTotal": 0,
       "error": null
