@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T05:16:20Z",
+  "generatedAt": "2026-08-24T03:56:31Z",
   "currentYear": 2026,
   "speciesCount": 31,
   "overview": {
@@ -20,16 +20,16 @@
         "label": "Down 37% vs the 5-year average",
         "pctChange": -37,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 57675,
-        "currentYearToDateCount": 25635
+        "latestCompleteYearCount": 57700,
+        "currentYearToDateCount": 26036
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1760-2025 (+150949%)",
-        "pctChange": 150949,
+        "label": "Improving since 1760-2025 (+151095%)",
+        "pctChange": 151095,
         "spanYears": "1760-2025"
       },
-      "totalRecords": 3743448,
+      "totalRecords": 3744074,
       "taxonFilter": {
         "phylum": "Arthropoda"
       }
@@ -40,16 +40,16 @@
         "label": "Down 37% vs the 5-year average",
         "pctChange": -37,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 57675,
-        "currentYearToDateCount": 25635
+        "latestCompleteYearCount": 57700,
+        "currentYearToDateCount": 26036
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1760-2025 (+150949%)",
-        "pctChange": 150949,
+        "label": "Improving since 1760-2025 (+151095%)",
+        "pctChange": 151095,
         "spanYears": "1760-2025"
       },
-      "totalRecords": 3743448,
+      "totalRecords": 3744074,
       "taxonFilter": {
         "class": "Mammalia"
       }
@@ -60,16 +60,16 @@
         "label": "Down 37% vs the 5-year average",
         "pctChange": -37,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 57675,
-        "currentYearToDateCount": 25635
+        "latestCompleteYearCount": 57700,
+        "currentYearToDateCount": 26036
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1760-2025 (+150949%)",
-        "pctChange": 150949,
+        "label": "Improving since 1760-2025 (+151095%)",
+        "pctChange": 151095,
         "spanYears": "1760-2025"
       },
-      "totalRecords": 3743448,
+      "totalRecords": 3744074,
       "taxonFilter": {
         "class": "Aves"
       }
@@ -80,16 +80,16 @@
         "label": "Down 37% vs the 5-year average",
         "pctChange": -37,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 57675,
-        "currentYearToDateCount": 25635
+        "latestCompleteYearCount": 57700,
+        "currentYearToDateCount": 26036
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1760-2025 (+150949%)",
-        "pctChange": 150949,
+        "label": "Improving since 1760-2025 (+151095%)",
+        "pctChange": 151095,
         "spanYears": "1760-2025"
       },
-      "totalRecords": 3743448,
+      "totalRecords": 3744074,
       "taxonFilter": {
         "class": "Actinopterygii"
       }
@@ -100,16 +100,16 @@
         "label": "Down 37% vs the 5-year average",
         "pctChange": -37,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 57675,
-        "currentYearToDateCount": 25635
+        "latestCompleteYearCount": 57700,
+        "currentYearToDateCount": 26036
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1760-2025 (+150949%)",
-        "pctChange": 150949,
+        "label": "Improving since 1760-2025 (+151095%)",
+        "pctChange": 151095,
         "spanYears": "1760-2025"
       },
-      "totalRecords": 3743448,
+      "totalRecords": 3744074,
       "taxonFilter": {
         "class": "Amphibia"
       }
@@ -120,16 +120,16 @@
         "label": "Down 37% vs the 5-year average",
         "pctChange": -37,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 57675,
-        "currentYearToDateCount": 25635
+        "latestCompleteYearCount": 57700,
+        "currentYearToDateCount": 26036
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1760-2025 (+150949%)",
-        "pctChange": 150949,
+        "label": "Improving since 1760-2025 (+151095%)",
+        "pctChange": 151095,
         "spanYears": "1760-2025"
       },
-      "totalRecords": 3743448,
+      "totalRecords": 3744074,
       "taxonFilter": {
         "kingdom": "Fungi"
       }
@@ -140,16 +140,16 @@
         "label": "Down 37% vs the 5-year average",
         "pctChange": -37,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 57675,
-        "currentYearToDateCount": 25635
+        "latestCompleteYearCount": 57700,
+        "currentYearToDateCount": 26036
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1760-2025 (+150949%)",
-        "pctChange": 150949,
+        "label": "Improving since 1760-2025 (+151095%)",
+        "pctChange": 151095,
         "spanYears": "1760-2025"
       },
-      "totalRecords": 3743448,
+      "totalRecords": 3744074,
       "taxonFilter": {
         "kingdom": "Bacteria"
       }
@@ -160,7 +160,7 @@
       "scientificName": "Phytophthora ramorum",
       "commonName": "Sudden oak death pathogen",
       "severity": "high",
-      "message": "Down 60% vs the 2-year average"
+      "message": "Down 71% vs the 2-year average"
     },
     {
       "scientificName": "Numenius arquata",
@@ -228,7 +228,7 @@
         "label": "Sequencing activity continuing at a steady pace"
       },
       "totalRecords": 590,
-      "totalSequences": 398681,
+      "totalSequences": 398695,
       "niOriginSequences": 1
     },
     "Bombus terrestris": {
@@ -436,23 +436,23 @@
       "category": "Invertebrates",
       "shortTermTrend": {
         "status": "notable_increase",
-        "label": "Up 817% vs the 5-year average",
-        "pctChange": 817,
+        "label": "Up 858% vs the 5-year average",
+        "pctChange": 858,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 22,
-        "currentYearToDateCount": 1
+        "latestCompleteYearCount": 23,
+        "currentYearToDateCount": 3
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 2007-2025 (+475%)",
-        "pctChange": 475,
+        "label": "Improving since 2007-2025 (+500%)",
+        "pctChange": 500,
         "spanYears": "2007-2025"
       },
       "sequenceTrend": {
         "status": "steady",
         "label": "Sequencing activity continuing at a steady pace"
       },
-      "totalRecords": 111,
+      "totalRecords": 114,
       "totalSequences": 29420,
       "niOriginSequences": 0
     },
@@ -517,7 +517,7 @@
         "label": "Sequencing activity continuing at a steady pace"
       },
       "totalRecords": null,
-      "totalSequences": 35494,
+      "totalSequences": 35495,
       "niOriginSequences": 0
     },
     "Hymenoscyphus fraxineus": {
@@ -550,8 +550,8 @@
       "category": "Fungi",
       "shortTermTrend": {
         "status": "significant_decline",
-        "label": "Down 60% vs the 2-year average",
-        "pctChange": -60,
+        "label": "Down 71% vs the 2-year average",
+        "pctChange": -71,
         "latestCompleteYear": "2024",
         "latestCompleteYearCount": 1,
         "currentYearToDateCount": null
@@ -566,7 +566,7 @@
         "status": "accelerating",
         "label": "Sequencing activity has notably picked up recently"
       },
-      "totalRecords": 6,
+      "totalRecords": 8,
       "totalSequences": 28377,
       "niOriginSequences": 7
     },
@@ -768,7 +768,7 @@
         "label": "Sequencing activity continuing at a steady pace"
       },
       "totalRecords": 5346,
-      "totalSequences": 67606,
+      "totalSequences": 67622,
       "niOriginSequences": 0
     },
     "Lepus timidus": {
@@ -818,7 +818,7 @@
         "label": "Sequencing activity has notably picked up recently"
       },
       "totalRecords": 1767,
-      "totalSequences": 40224,
+      "totalSequences": 40225,
       "niOriginSequences": 0
     },
     "Lutra lutra": {

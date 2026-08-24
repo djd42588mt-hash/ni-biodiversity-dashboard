@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-17T05:15:48Z",
+  "generatedAt": "2026-08-24T03:55:59Z",
   "species": {
     "Apis mellifera": {
-      "totalSequences": 398681,
+      "totalSequences": 398695,
       "byYear": {
         "2016": 4993,
         "2017": 649,
@@ -14,7 +14,7 @@
         "2023": 1050,
         "2024": 2170,
         "2025": 1236,
-        "2026": 470
+        "2026": 484
       },
       "niOriginTotal": 1,
       "error": null
@@ -236,7 +236,7 @@
       "error": null
     },
     "Xylella fastidiosa": {
-      "totalSequences": 35494,
+      "totalSequences": 35495,
       "byYear": {
         "2016": 2112,
         "2017": 94,
@@ -248,7 +248,7 @@
         "2023": 10147,
         "2024": 295,
         "2025": 66,
-        "2026": 133
+        "2026": 134
       },
       "niOriginTotal": 0,
       "error": null
@@ -434,7 +434,7 @@
       "error": null
     },
     "Sciurus vulgaris": {
-      "totalSequences": 67606,
+      "totalSequences": 67622,
       "byYear": {
         "2016": 44,
         "2017": 1,
@@ -446,7 +446,7 @@
         "2023": 8,
         "2024": 1,
         "2025": 0,
-        "2026": 66614
+        "2026": 66630
       },
       "niOriginTotal": 0,
       "error": null
@@ -470,7 +470,7 @@
       "error": null
     },
     "Martes martes": {
-      "totalSequences": 40224,
+      "totalSequences": 40225,
       "byYear": {
         "2016": 9,
         "2017": 1,
@@ -482,7 +482,7 @@
         "2023": 34,
         "2024": 57,
         "2025": 0,
-        "2026": 39743
+        "2026": 39744
       },
       "niOriginTotal": 0,
       "error": null

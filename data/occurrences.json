@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T05:11:44Z",
+  "generatedAt": "2026-08-24T03:51:31Z",
   "boundary": {
     "type": "bbox+country",
     "country": "GB",
@@ -262,7 +262,7 @@
     "Harmonia axyridis": {
       "byYear": {
         "2016": 26,
-        "2025": 22,
+        "2025": 23,
         "2017": 20,
         "2014": 7,
         "2018": 7,
@@ -271,14 +271,14 @@
         "2020": 3,
         "2022": 3,
         "2023": 3,
+        "2026": 3,
         "2007": 2,
         "2009": 2,
         "2021": 2,
         "2015": 1,
-        "2024": 1,
-        "2026": 1
+        "2024": 1
       },
-      "totalRecords": 111,
+      "totalRecords": 114,
       "error": null
     },
     "Dendroctonus micans": {
@@ -296,11 +296,11 @@
     },
     "Phytophthora ramorum": {
       "byYear": {
-        "2012": 4,
+        "2012": 6,
         "2010": 1,
         "2024": 1
       },
-      "totalRecords": 6,
+      "totalRecords": 8,
       "error": null
     },
     "Numenius arquata": {
