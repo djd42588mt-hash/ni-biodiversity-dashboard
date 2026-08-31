@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-24T03:55:59Z",
+  "generatedAt": "2026-08-31T09:20:27Z",
   "species": {
     "Apis mellifera": {
-      "totalSequences": 398695,
+      "totalSequences": 398801,
       "byYear": {
         "2016": 4993,
         "2017": 649,
@@ -14,7 +14,7 @@
         "2023": 1050,
         "2024": 2170,
         "2025": 1236,
-        "2026": 484
+        "2026": 590
       },
       "niOriginTotal": 1,
       "error": null
@@ -92,7 +92,7 @@
       "error": null
     },
     "Varroa destructor": {
-      "totalSequences": 59419,
+      "totalSequences": 59422,
       "byYear": {
         "2016": 174,
         "2017": 22394,
@@ -104,7 +104,7 @@
         "2023": 385,
         "2024": 37,
         "2025": 23,
-        "2026": 34929
+        "2026": 34932
       },
       "niOriginTotal": 0,
       "error": null
@@ -200,7 +200,7 @@
       "error": null
     },
     "Paenibacillus larvae": {
-      "totalSequences": 15005,
+      "totalSequences": 15031,
       "byYear": {
         "2016": 55,
         "2017": 741,
@@ -218,7 +218,7 @@
       "error": null
     },
     "Melissococcus plutonius": {
-      "totalSequences": 8081,
+      "totalSequences": 8086,
       "byYear": {
         "2016": 6,
         "2017": 0,
@@ -230,13 +230,13 @@
         "2023": 9,
         "2024": 0,
         "2025": 6962,
-        "2026": 43
+        "2026": 48
       },
       "niOriginTotal": 0,
       "error": null
     },
     "Xylella fastidiosa": {
-      "totalSequences": 35495,
+      "totalSequences": 35489,
       "byYear": {
         "2016": 2112,
         "2017": 94,
@@ -245,10 +245,10 @@
         "2020": 2319,
         "2021": 690,
         "2022": 1070,
-        "2023": 10147,
+        "2023": 10139,
         "2024": 295,
         "2025": 66,
-        "2026": 134
+        "2026": 136
       },
       "niOriginTotal": 0,
       "error": null
