@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-31T09:16:24Z",
+  "generatedAt": "2026-09-07T07:52:10Z",
   "boundary": {
     "type": "bbox+country",
     "country": "GB",
@@ -431,6 +431,7 @@
         "1971": 3,
         "1981": 3,
         "1998": 3,
+        "1982": 2,
         "1992": 2,
         "1995": 2,
         "1996": 2,
@@ -442,7 +443,7 @@
         "1987": 1,
         "1993": 1
       },
-      "totalRecords": 5183,
+      "totalRecords": 5185,
       "error": null
     },
     "Salmo salar": {

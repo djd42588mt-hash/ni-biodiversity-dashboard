@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-31T09:20:27Z",
+  "generatedAt": "2026-09-07T07:55:31Z",
   "species": {
     "Apis mellifera": {
-      "totalSequences": 398801,
+      "totalSequences": 398805,
       "byYear": {
         "2016": 4993,
         "2017": 649,
@@ -14,7 +14,7 @@
         "2023": 1050,
         "2024": 2170,
         "2025": 1236,
-        "2026": 590
+        "2026": 594
       },
       "niOriginTotal": 1,
       "error": null
@@ -164,7 +164,7 @@
       "error": null
     },
     "Harmonia axyridis": {
-      "totalSequences": 29420,
+      "totalSequences": 29425,
       "byYear": {
         "2016": 205,
         "2017": 81,
@@ -176,7 +176,7 @@
         "2023": 34,
         "2024": 9,
         "2025": 25,
-        "2026": 14
+        "2026": 19
       },
       "niOriginTotal": 0,
       "error": null
@@ -236,7 +236,7 @@
       "error": null
     },
     "Xylella fastidiosa": {
-      "totalSequences": 35489,
+      "totalSequences": 35491,
       "byYear": {
         "2016": 2112,
         "2017": 94,
@@ -248,13 +248,13 @@
         "2023": 10139,
         "2024": 295,
         "2025": 66,
-        "2026": 136
+        "2026": 138
       },
       "niOriginTotal": 0,
       "error": null
     },
     "Hymenoscyphus fraxineus": {
-      "totalSequences": 1739,
+      "totalSequences": 1749,
       "byYear": {
         "2016": 53,
         "2017": 164,
@@ -266,7 +266,7 @@
         "2023": 4,
         "2024": 14,
         "2025": 101,
-        "2026": 1
+        "2026": 11
       },
       "niOriginTotal": 0,
       "error": null
@@ -344,7 +344,7 @@
       "error": null
     },
     "Crex crex": {
-      "totalSequences": 102,
+      "totalSequences": 104,
       "byYear": {
         "2016": 1,
         "2017": 0,
@@ -356,7 +356,7 @@
         "2023": 0,
         "2024": 0,
         "2025": 1,
-        "2026": 82
+        "2026": 84
       },
       "niOriginTotal": 0,
       "error": null

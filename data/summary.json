@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-31T09:21:17Z",
+  "generatedAt": "2026-09-07T07:55:54Z",
   "currentYear": 2026,
   "speciesCount": 31,
   "overview": {
@@ -17,19 +17,19 @@
     "Invertebrates": {
       "shortTermTrend": {
         "status": "moderate_decline",
-        "label": "Down 37% vs the 5-year average",
-        "pctChange": -37,
+        "label": "Down 35% vs the 5-year average",
+        "pctChange": -35,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 57753,
-        "currentYearToDateCount": 27474
+        "latestCompleteYearCount": 61284,
+        "currentYearToDateCount": 27971
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1760-2025 (+151152%)",
-        "pctChange": 151152,
+        "label": "Improving since 1760-2025 (+155340%)",
+        "pctChange": 155340,
         "spanYears": "1760-2025"
       },
-      "totalRecords": 3745627,
+      "totalRecords": 3807701,
       "taxonFilter": {
         "phylum": "Arthropoda"
       }
@@ -37,19 +37,19 @@
     "Mammals": {
       "shortTermTrend": {
         "status": "moderate_decline",
-        "label": "Down 37% vs the 5-year average",
-        "pctChange": -37,
+        "label": "Down 35% vs the 5-year average",
+        "pctChange": -35,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 57753,
-        "currentYearToDateCount": 27474
+        "latestCompleteYearCount": 61284,
+        "currentYearToDateCount": 27971
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1760-2025 (+151152%)",
-        "pctChange": 151152,
+        "label": "Improving since 1760-2025 (+155340%)",
+        "pctChange": 155340,
         "spanYears": "1760-2025"
       },
-      "totalRecords": 3745627,
+      "totalRecords": 3807701,
       "taxonFilter": {
         "class": "Mammalia"
       }
@@ -57,19 +57,19 @@
     "Birds": {
       "shortTermTrend": {
         "status": "moderate_decline",
-        "label": "Down 37% vs the 5-year average",
-        "pctChange": -37,
+        "label": "Down 35% vs the 5-year average",
+        "pctChange": -35,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 57753,
-        "currentYearToDateCount": 27474
+        "latestCompleteYearCount": 61284,
+        "currentYearToDateCount": 27971
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1760-2025 (+151152%)",
-        "pctChange": 151152,
+        "label": "Improving since 1760-2025 (+155340%)",
+        "pctChange": 155340,
         "spanYears": "1760-2025"
       },
-      "totalRecords": 3745627,
+      "totalRecords": 3807701,
       "taxonFilter": {
         "class": "Aves"
       }
@@ -77,19 +77,19 @@
     "Fish": {
       "shortTermTrend": {
         "status": "moderate_decline",
-        "label": "Down 37% vs the 5-year average",
-        "pctChange": -37,
+        "label": "Down 35% vs the 5-year average",
+        "pctChange": -35,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 57753,
-        "currentYearToDateCount": 27474
+        "latestCompleteYearCount": 61284,
+        "currentYearToDateCount": 27971
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1760-2025 (+151152%)",
-        "pctChange": 151152,
+        "label": "Improving since 1760-2025 (+155340%)",
+        "pctChange": 155340,
         "spanYears": "1760-2025"
       },
-      "totalRecords": 3745627,
+      "totalRecords": 3807701,
       "taxonFilter": {
         "class": "Actinopterygii"
       }
@@ -97,19 +97,19 @@
     "Amphibians": {
       "shortTermTrend": {
         "status": "moderate_decline",
-        "label": "Down 37% vs the 5-year average",
-        "pctChange": -37,
+        "label": "Down 35% vs the 5-year average",
+        "pctChange": -35,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 57753,
-        "currentYearToDateCount": 27474
+        "latestCompleteYearCount": 61284,
+        "currentYearToDateCount": 27971
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1760-2025 (+151152%)",
-        "pctChange": 151152,
+        "label": "Improving since 1760-2025 (+155340%)",
+        "pctChange": 155340,
         "spanYears": "1760-2025"
       },
-      "totalRecords": 3745627,
+      "totalRecords": 3807701,
       "taxonFilter": {
         "class": "Amphibia"
       }
@@ -117,19 +117,19 @@
     "Fungi": {
       "shortTermTrend": {
         "status": "moderate_decline",
-        "label": "Down 37% vs the 5-year average",
-        "pctChange": -37,
+        "label": "Down 35% vs the 5-year average",
+        "pctChange": -35,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 57753,
-        "currentYearToDateCount": 27474
+        "latestCompleteYearCount": 61284,
+        "currentYearToDateCount": 27971
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1760-2025 (+151152%)",
-        "pctChange": 151152,
+        "label": "Improving since 1760-2025 (+155340%)",
+        "pctChange": 155340,
         "spanYears": "1760-2025"
       },
-      "totalRecords": 3745627,
+      "totalRecords": 3807701,
       "taxonFilter": {
         "kingdom": "Fungi"
       }
@@ -137,19 +137,19 @@
     "Bacteria": {
       "shortTermTrend": {
         "status": "moderate_decline",
-        "label": "Down 37% vs the 5-year average",
-        "pctChange": -37,
+        "label": "Down 35% vs the 5-year average",
+        "pctChange": -35,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 57753,
-        "currentYearToDateCount": 27474
+        "latestCompleteYearCount": 61284,
+        "currentYearToDateCount": 27971
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1760-2025 (+151152%)",
-        "pctChange": 151152,
+        "label": "Improving since 1760-2025 (+155340%)",
+        "pctChange": 155340,
         "spanYears": "1760-2025"
       },
-      "totalRecords": 3745627,
+      "totalRecords": 3807701,
       "taxonFilter": {
         "kingdom": "Bacteria"
       }
@@ -228,7 +228,7 @@
         "label": "Sequencing activity continuing at a steady pace"
       },
       "totalRecords": 594,
-      "totalSequences": 398801,
+      "totalSequences": 398805,
       "niOriginSequences": 1
     },
     "Bombus terrestris": {
@@ -453,7 +453,7 @@
         "label": "Sequencing activity continuing at a steady pace"
       },
       "totalRecords": 118,
-      "totalSequences": 29420,
+      "totalSequences": 29425,
       "niOriginSequences": 0
     },
     "Dendroctonus micans": {
@@ -517,7 +517,7 @@
         "label": "Sequencing activity continuing at a steady pace"
       },
       "totalRecords": null,
-      "totalSequences": 35489,
+      "totalSequences": 35491,
       "niOriginSequences": 0
     },
     "Hymenoscyphus fraxineus": {
@@ -542,7 +542,7 @@
         "label": "Sequencing activity continuing at a steady pace"
       },
       "totalRecords": 3,
-      "totalSequences": 1739,
+      "totalSequences": 1749,
       "niOriginSequences": 0
     },
     "Phytophthora ramorum": {
@@ -643,7 +643,7 @@
         "label": "Sequencing activity has notably picked up recently"
       },
       "totalRecords": 275,
-      "totalSequences": 102,
+      "totalSequences": 104,
       "niOriginSequences": 0
     },
     "Hirundo rustica": {
@@ -667,7 +667,7 @@
         "status": "steady",
         "label": "Sequencing activity continuing at a steady pace"
       },
-      "totalRecords": 5183,
+      "totalRecords": 5185,
       "totalSequences": 44528,
       "niOriginSequences": 0
     },
