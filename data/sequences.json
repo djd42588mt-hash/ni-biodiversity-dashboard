@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-07T07:55:31Z",
+  "generatedAt": "2026-09-14T08:33:49Z",
   "species": {
     "Apis mellifera": {
       "totalSequences": 398805,
@@ -164,7 +164,7 @@
       "error": null
     },
     "Harmonia axyridis": {
-      "totalSequences": 29425,
+      "totalSequences": 29454,
       "byYear": {
         "2016": 205,
         "2017": 81,
@@ -176,7 +176,7 @@
         "2023": 34,
         "2024": 9,
         "2025": 25,
-        "2026": 19
+        "2026": 48
       },
       "niOriginTotal": 0,
       "error": null
@@ -236,7 +236,7 @@
       "error": null
     },
     "Xylella fastidiosa": {
-      "totalSequences": 35491,
+      "totalSequences": 35493,
       "byYear": {
         "2016": 2112,
         "2017": 94,
@@ -248,7 +248,7 @@
         "2023": 10139,
         "2024": 295,
         "2025": 66,
-        "2026": 138
+        "2026": 140
       },
       "niOriginTotal": 0,
       "error": null
@@ -272,7 +272,7 @@
       "error": null
     },
     "Phytophthora ramorum": {
-      "totalSequences": 28377,
+      "totalSequences": 28428,
       "byYear": {
         "2016": 4,
         "2017": 5021,
@@ -284,7 +284,7 @@
         "2023": 7,
         "2024": 15554,
         "2025": 195,
-        "2026": 73
+        "2026": 124
       },
       "niOriginTotal": 7,
       "error": null
@@ -362,7 +362,7 @@
       "error": null
     },
     "Hirundo rustica": {
-      "totalSequences": 44528,
+      "totalSequences": 44688,
       "byYear": {
         "2016": 299,
         "2017": 0,
@@ -374,7 +374,7 @@
         "2023": 7173,
         "2024": 3,
         "2025": 4,
-        "2026": 0
+        "2026": 160
       },
       "niOriginTotal": 0,
       "error": null
@@ -452,7 +452,7 @@
       "error": null
     },
     "Lepus timidus": {
-      "totalSequences": 1347,
+      "totalSequences": 1369,
       "byYear": {
         "2016": 1,
         "2017": 365,
@@ -464,7 +464,7 @@
         "2023": 36,
         "2024": 74,
         "2025": 0,
-        "2026": 5
+        "2026": 27
       },
       "niOriginTotal": 0,
       "error": null
