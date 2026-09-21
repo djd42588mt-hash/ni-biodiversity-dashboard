@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-14T08:33:49Z",
+  "generatedAt": "2026-09-21T08:35:30Z",
   "species": {
     "Apis mellifera": {
       "totalSequences": 398805,
@@ -236,7 +236,7 @@
       "error": null
     },
     "Xylella fastidiosa": {
-      "totalSequences": 35493,
+      "totalSequences": 35496,
       "byYear": {
         "2016": 2112,
         "2017": 94,
@@ -248,7 +248,7 @@
         "2023": 10139,
         "2024": 295,
         "2025": 66,
-        "2026": 140
+        "2026": 143
       },
       "niOriginTotal": 0,
       "error": null
@@ -272,7 +272,7 @@
       "error": null
     },
     "Phytophthora ramorum": {
-      "totalSequences": 28428,
+      "totalSequences": 28450,
       "byYear": {
         "2016": 4,
         "2017": 5021,
@@ -284,7 +284,7 @@
         "2023": 7,
         "2024": 15554,
         "2025": 195,
-        "2026": 124
+        "2026": 146
       },
       "niOriginTotal": 7,
       "error": null
@@ -380,7 +380,7 @@
       "error": null
     },
     "Salmo salar": {
-      "totalSequences": 1050865,
+      "totalSequences": 1050870,
       "byYear": {
         "2016": 70,
         "2017": 74,
@@ -392,7 +392,7 @@
         "2023": 146,
         "2024": 353,
         "2025": 231,
-        "2026": 51183
+        "2026": 51188
       },
       "niOriginTotal": 0,
       "error": null
