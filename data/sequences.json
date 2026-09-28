@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T08:35:30Z",
+  "generatedAt": "2026-09-28T09:22:46Z",
   "species": {
     "Apis mellifera": {
       "totalSequences": 398805,
@@ -38,7 +38,7 @@
       "error": null
     },
     "Bombus pascuorum": {
-      "totalSequences": 25481,
+      "totalSequences": 25482,
       "byYear": {
         "2016": 15,
         "2017": 2,
@@ -50,7 +50,7 @@
         "2023": 25086,
         "2024": 22,
         "2025": 13,
-        "2026": 7
+        "2026": 8
       },
       "niOriginTotal": 0,
       "error": null
@@ -236,7 +236,7 @@
       "error": null
     },
     "Xylella fastidiosa": {
-      "totalSequences": 35496,
+      "totalSequences": 35516,
       "byYear": {
         "2016": 2112,
         "2017": 94,
@@ -248,7 +248,7 @@
         "2023": 10139,
         "2024": 295,
         "2025": 66,
-        "2026": 143
+        "2026": 163
       },
       "niOriginTotal": 0,
       "error": null
@@ -326,7 +326,7 @@
       "error": null
     },
     "Numenius arquata": {
-      "totalSequences": 27941,
+      "totalSequences": 27939,
       "byYear": {
         "2016": 0,
         "2017": 1,
@@ -336,7 +336,7 @@
         "2021": 1,
         "2022": 0,
         "2023": 0,
-        "2024": 46,
+        "2024": 44,
         "2025": 27693,
         "2026": 2
       },
