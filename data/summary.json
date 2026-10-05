@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-28T09:23:12Z",
+  "generatedAt": "2026-10-05T10:01:55Z",
   "currentYear": 2026,
   "speciesCount": 31,
   "overview": {
     "improving": 18,
-    "declining": 0,
+    "declining": 1,
     "stable": 1
   },
   "groupOverview": {
@@ -17,19 +17,19 @@
     "Invertebrates": {
       "shortTermTrend": {
         "status": "moderate_decline",
-        "label": "Down 35% vs the 5-year average",
-        "pctChange": -35,
+        "label": "Down 33% vs the 5-year average",
+        "pctChange": -33,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 61445,
-        "currentYearToDateCount": 29483
+        "latestCompleteYearCount": 64024,
+        "currentYearToDateCount": 49565
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1760-2025 (+155563%)",
-        "pctChange": 155563,
-        "spanYears": "1760-2025"
+        "label": "Improving since 1776-2025 (+159889%)",
+        "pctChange": 159889,
+        "spanYears": "1776-2025"
       },
-      "totalRecords": 3809721,
+      "totalRecords": 3860729,
       "taxonFilter": {
         "phylum": "Arthropoda"
       }
@@ -37,19 +37,19 @@
     "Mammals": {
       "shortTermTrend": {
         "status": "moderate_decline",
-        "label": "Down 35% vs the 5-year average",
-        "pctChange": -35,
+        "label": "Down 33% vs the 5-year average",
+        "pctChange": -33,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 61445,
-        "currentYearToDateCount": 29483
+        "latestCompleteYearCount": 64024,
+        "currentYearToDateCount": 49565
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1760-2025 (+155563%)",
-        "pctChange": 155563,
-        "spanYears": "1760-2025"
+        "label": "Improving since 1776-2025 (+159889%)",
+        "pctChange": 159889,
+        "spanYears": "1776-2025"
       },
-      "totalRecords": 3809721,
+      "totalRecords": 3860729,
       "taxonFilter": {
         "class": "Mammalia"
       }
@@ -57,19 +57,19 @@
     "Birds": {
       "shortTermTrend": {
         "status": "moderate_decline",
-        "label": "Down 35% vs the 5-year average",
-        "pctChange": -35,
+        "label": "Down 33% vs the 5-year average",
+        "pctChange": -33,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 61445,
-        "currentYearToDateCount": 29483
+        "latestCompleteYearCount": 64024,
+        "currentYearToDateCount": 49565
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1760-2025 (+155563%)",
-        "pctChange": 155563,
-        "spanYears": "1760-2025"
+        "label": "Improving since 1776-2025 (+159889%)",
+        "pctChange": 159889,
+        "spanYears": "1776-2025"
       },
-      "totalRecords": 3809721,
+      "totalRecords": 3860729,
       "taxonFilter": {
         "class": "Aves"
       }
@@ -77,19 +77,19 @@
     "Fish": {
       "shortTermTrend": {
         "status": "moderate_decline",
-        "label": "Down 35% vs the 5-year average",
-        "pctChange": -35,
+        "label": "Down 33% vs the 5-year average",
+        "pctChange": -33,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 61445,
-        "currentYearToDateCount": 29483
+        "latestCompleteYearCount": 64024,
+        "currentYearToDateCount": 49565
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1760-2025 (+155563%)",
-        "pctChange": 155563,
-        "spanYears": "1760-2025"
+        "label": "Improving since 1776-2025 (+159889%)",
+        "pctChange": 159889,
+        "spanYears": "1776-2025"
       },
-      "totalRecords": 3809721,
+      "totalRecords": 3860729,
       "taxonFilter": {
         "class": "Actinopterygii"
       }
@@ -97,19 +97,19 @@
     "Amphibians": {
       "shortTermTrend": {
         "status": "moderate_decline",
-        "label": "Down 35% vs the 5-year average",
-        "pctChange": -35,
+        "label": "Down 33% vs the 5-year average",
+        "pctChange": -33,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 61445,
-        "currentYearToDateCount": 29483
+        "latestCompleteYearCount": 64024,
+        "currentYearToDateCount": 49565
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1760-2025 (+155563%)",
-        "pctChange": 155563,
-        "spanYears": "1760-2025"
+        "label": "Improving since 1776-2025 (+159889%)",
+        "pctChange": 159889,
+        "spanYears": "1776-2025"
       },
-      "totalRecords": 3809721,
+      "totalRecords": 3860729,
       "taxonFilter": {
         "class": "Amphibia"
       }
@@ -117,19 +117,19 @@
     "Fungi": {
       "shortTermTrend": {
         "status": "moderate_decline",
-        "label": "Down 35% vs the 5-year average",
-        "pctChange": -35,
+        "label": "Down 33% vs the 5-year average",
+        "pctChange": -33,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 61445,
-        "currentYearToDateCount": 29483
+        "latestCompleteYearCount": 64024,
+        "currentYearToDateCount": 49565
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1760-2025 (+155563%)",
-        "pctChange": 155563,
-        "spanYears": "1760-2025"
+        "label": "Improving since 1776-2025 (+159889%)",
+        "pctChange": 159889,
+        "spanYears": "1776-2025"
       },
-      "totalRecords": 3809721,
+      "totalRecords": 3860729,
       "taxonFilter": {
         "kingdom": "Fungi"
       }
@@ -137,19 +137,19 @@
     "Bacteria": {
       "shortTermTrend": {
         "status": "moderate_decline",
-        "label": "Down 35% vs the 5-year average",
-        "pctChange": -35,
+        "label": "Down 33% vs the 5-year average",
+        "pctChange": -33,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 61445,
-        "currentYearToDateCount": 29483
+        "latestCompleteYearCount": 64024,
+        "currentYearToDateCount": 49565
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1760-2025 (+155563%)",
-        "pctChange": 155563,
-        "spanYears": "1760-2025"
+        "label": "Improving since 1776-2025 (+159889%)",
+        "pctChange": 159889,
+        "spanYears": "1776-2025"
       },
-      "totalRecords": 3809721,
+      "totalRecords": 3860729,
       "taxonFilter": {
         "kingdom": "Bacteria"
       }
@@ -184,19 +184,19 @@
       "scientificName": "Anguilla anguilla",
       "commonName": "European eel",
       "severity": "moderate",
-      "message": "Down 40% vs the 5-year average"
+      "message": "Down 44% vs the 5-year average"
     },
     {
       "scientificName": "Sciurus carolinensis",
       "commonName": "Grey squirrel",
       "severity": "moderate",
-      "message": "Down 47% vs the 5-year average"
+      "message": "Down 28% vs the 5-year average"
     },
     {
       "scientificName": "Lepus timidus",
       "commonName": "Irish hare",
       "severity": "moderate",
-      "message": "Down 47% vs the 5-year average"
+      "message": "Down 33% vs the 5-year average"
     },
     {
       "scientificName": "Erinaceus europaeus",
@@ -215,7 +215,7 @@
         "pctChange": 21,
         "latestCompleteYear": "2025",
         "latestCompleteYearCount": 66,
-        "currentYearToDateCount": 56
+        "currentYearToDateCount": 61
       },
       "longTermTrend": {
         "status": "improving",
@@ -227,7 +227,7 @@
         "status": "steady",
         "label": "Sequencing activity continuing at a steady pace"
       },
-      "totalRecords": 602,
+      "totalRecords": 607,
       "totalSequences": 398805,
       "niOriginSequences": 1
     },
@@ -240,7 +240,7 @@
         "pctChange": 78,
         "latestCompleteYear": "2025",
         "latestCompleteYearCount": 151,
-        "currentYearToDateCount": 36
+        "currentYearToDateCount": 39
       },
       "longTermTrend": {
         "status": "improving",
@@ -252,7 +252,7 @@
         "status": "steady",
         "label": "Sequencing activity continuing at a steady pace"
       },
-      "totalRecords": 1511,
+      "totalRecords": 1514,
       "totalSequences": 303497,
       "niOriginSequences": 0
     },
@@ -265,7 +265,7 @@
         "pctChange": 64,
         "latestCompleteYear": "2025",
         "latestCompleteYearCount": 509,
-        "currentYearToDateCount": 134
+        "currentYearToDateCount": 135
       },
       "longTermTrend": {
         "status": "improving",
@@ -277,7 +277,7 @@
         "status": "accelerating",
         "label": "Sequencing activity has notably picked up recently"
       },
-      "totalRecords": 4311,
+      "totalRecords": 4312,
       "totalSequences": 25482,
       "niOriginSequences": 0
     },
@@ -315,7 +315,7 @@
         "pctChange": 26,
         "latestCompleteYear": "2025",
         "latestCompleteYearCount": 50,
-        "currentYearToDateCount": 21
+        "currentYearToDateCount": 22
       },
       "longTermTrend": {
         "status": "improving",
@@ -327,7 +327,7 @@
         "status": "steady",
         "label": "Sequencing activity continuing at a steady pace"
       },
-      "totalRecords": 676,
+      "totalRecords": 677,
       "totalSequences": 1464,
       "niOriginSequences": 0
     },
@@ -353,7 +353,7 @@
         "label": "Sequencing activity continuing at a steady pace"
       },
       "totalRecords": 0,
-      "totalSequences": 59422,
+      "totalSequences": 59425,
       "niOriginSequences": 0
     },
     "Vespa velutina": {
@@ -428,7 +428,7 @@
         "label": "Sequencing activity continuing at a steady pace"
       },
       "totalRecords": 0,
-      "totalSequences": 46486,
+      "totalSequences": 46506,
       "niOriginSequences": 0
     },
     "Harmonia axyridis": {
@@ -440,7 +440,7 @@
         "pctChange": 858,
         "latestCompleteYear": "2025",
         "latestCompleteYearCount": 23,
-        "currentYearToDateCount": 12
+        "currentYearToDateCount": 28
       },
       "longTermTrend": {
         "status": "improving",
@@ -452,7 +452,7 @@
         "status": "steady",
         "label": "Sequencing activity continuing at a steady pace"
       },
-      "totalRecords": 123,
+      "totalRecords": 139,
       "totalSequences": 29454,
       "niOriginSequences": 0
     },
@@ -517,31 +517,31 @@
         "label": "Sequencing activity continuing at a steady pace"
       },
       "totalRecords": null,
-      "totalSequences": 35516,
+      "totalSequences": 35864,
       "niOriginSequences": 0
     },
     "Hymenoscyphus fraxineus": {
       "commonName": "Ash dieback fungus",
       "category": "Fungi",
       "shortTermTrend": {
-        "status": "insufficient_data",
-        "label": "Not enough complete years of data yet to assess a trend",
-        "pctChange": null,
+        "status": "stable",
+        "label": "Broadly stable vs recent years",
+        "pctChange": 14,
         "latestCompleteYear": "2024",
-        "latestCompleteYearCount": 1,
-        "currentYearToDateCount": 2
+        "latestCompleteYearCount": 5,
+        "currentYearToDateCount": 3
       },
       "longTermTrend": {
-        "status": "insufficient_data",
-        "label": "Not enough years of history for a long-term trend",
-        "pctChange": null,
-        "spanYears": null
+        "status": "declining",
+        "label": "Declining since 2008-2024 (-54%)",
+        "pctChange": -54,
+        "spanYears": "2008-2024"
       },
       "sequenceTrend": {
         "status": "steady",
         "label": "Sequencing activity continuing at a steady pace"
       },
-      "totalRecords": 3,
+      "totalRecords": 30,
       "totalSequences": 1749,
       "niOriginSequences": 0
     },
@@ -604,20 +604,20 @@
         "label": "Down 70% vs the 5-year average",
         "pctChange": -70,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 134,
-        "currentYearToDateCount": 30
+        "latestCompleteYearCount": 135,
+        "currentYearToDateCount": 69
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1927-2025 (+47550%)",
-        "pctChange": 47550,
+        "label": "Improving since 1927-2025 (+47600%)",
+        "pctChange": 47600,
         "spanYears": "1927-2025"
       },
       "sequenceTrend": {
         "status": "accelerating",
         "label": "Sequencing activity has notably picked up recently"
       },
-      "totalRecords": 4345,
+      "totalRecords": 4385,
       "totalSequences": 27939,
       "niOriginSequences": 0
     },
@@ -630,7 +630,7 @@
         "pctChange": 76,
         "latestCompleteYear": "2025",
         "latestCompleteYearCount": 12,
-        "currentYearToDateCount": 2
+        "currentYearToDateCount": 3
       },
       "longTermTrend": {
         "status": "improving",
@@ -642,7 +642,7 @@
         "status": "accelerating",
         "label": "Sequencing activity has notably picked up recently"
       },
-      "totalRecords": 275,
+      "totalRecords": 276,
       "totalSequences": 104,
       "niOriginSequences": 0
     },
@@ -655,19 +655,19 @@
         "pctChange": -78,
         "latestCompleteYear": "2025",
         "latestCompleteYearCount": 138,
-        "currentYearToDateCount": 59
+        "currentYearToDateCount": 164
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1967-2025 (+60900%)",
-        "pctChange": 60900,
+        "label": "Improving since 1967-2025 (+60950%)",
+        "pctChange": 60950,
         "spanYears": "1967-2025"
       },
       "sequenceTrend": {
         "status": "steady",
         "label": "Sequencing activity continuing at a steady pace"
       },
-      "totalRecords": 5193,
+      "totalRecords": 5301,
       "totalSequences": 44688,
       "niOriginSequences": 0
     },
@@ -701,11 +701,11 @@
       "category": "Fish",
       "shortTermTrend": {
         "status": "moderate_decline",
-        "label": "Down 40% vs the 5-year average",
-        "pctChange": -40,
+        "label": "Down 44% vs the 5-year average",
+        "pctChange": -44,
         "latestCompleteYear": "2025",
         "latestCompleteYearCount": 3,
-        "currentYearToDateCount": 7
+        "currentYearToDateCount": 9
       },
       "longTermTrend": {
         "status": "improving",
@@ -717,7 +717,7 @@
         "status": "steady",
         "label": "Sequencing activity continuing at a steady pace"
       },
-      "totalRecords": 501,
+      "totalRecords": 505,
       "totalSequences": 175351,
       "niOriginSequences": 0
     },
@@ -726,23 +726,23 @@
       "category": "Mammals",
       "shortTermTrend": {
         "status": "moderate_decline",
-        "label": "Down 47% vs the 5-year average",
-        "pctChange": -47,
+        "label": "Down 28% vs the 5-year average",
+        "pctChange": -28,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 133,
-        "currentYearToDateCount": 63
+        "latestCompleteYearCount": 201,
+        "currentYearToDateCount": 181
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1968-2025 (+2383%)",
-        "pctChange": 2383,
+        "label": "Improving since 1968-2025 (+3425%)",
+        "pctChange": 3425,
         "spanYears": "1968-2025"
       },
       "sequenceTrend": {
         "status": "steady",
         "label": "Sequencing activity continuing at a steady pace"
       },
-      "totalRecords": 6459,
+      "totalRecords": 6796,
       "totalSequences": 60065,
       "niOriginSequences": 0
     },
@@ -750,24 +750,24 @@
       "commonName": "Red squirrel",
       "category": "Mammals",
       "shortTermTrend": {
-        "status": "stable",
-        "label": "Broadly stable vs recent years",
-        "pctChange": 15,
+        "status": "notable_increase",
+        "label": "Up 64% vs the 5-year average",
+        "pctChange": 64,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 440,
-        "currentYearToDateCount": 29
+        "latestCompleteYearCount": 633,
+        "currentYearToDateCount": 237
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1990-2025 (+9550%)",
-        "pctChange": 9550,
+        "label": "Improving since 1990-2025 (+12138%)",
+        "pctChange": 12138,
         "spanYears": "1990-2025"
       },
       "sequenceTrend": {
         "status": "steady",
         "label": "Sequencing activity continuing at a steady pace"
       },
-      "totalRecords": 5347,
+      "totalRecords": 5777,
       "totalSequences": 67622,
       "niOriginSequences": 0
     },
@@ -776,23 +776,23 @@
       "category": "Mammals",
       "shortTermTrend": {
         "status": "moderate_decline",
-        "label": "Down 47% vs the 5-year average",
-        "pctChange": -47,
+        "label": "Down 33% vs the 5-year average",
+        "pctChange": -33,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 15,
-        "currentYearToDateCount": 12
+        "latestCompleteYearCount": 20,
+        "currentYearToDateCount": 14
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1968-2025 (+1400%)",
-        "pctChange": 1400,
+        "label": "Improving since 1968-2025 (+1750%)",
+        "pctChange": 1750,
         "spanYears": "1968-2025"
       },
       "sequenceTrend": {
         "status": "steady",
         "label": "Sequencing activity continuing at a steady pace"
       },
-      "totalRecords": 2494,
+      "totalRecords": 2510,
       "totalSequences": 1369,
       "niOriginSequences": 0
     },
@@ -800,24 +800,24 @@
       "commonName": "Pine marten",
       "category": "Mammals",
       "shortTermTrend": {
-        "status": "stable",
-        "label": "Broadly stable vs recent years",
-        "pctChange": 40,
+        "status": "notable_increase",
+        "label": "Up 74% vs the 5-year average",
+        "pctChange": 74,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 204,
-        "currentYearToDateCount": 4
+        "latestCompleteYearCount": 257,
+        "currentYearToDateCount": 139
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 2001-2025 (+9650%)",
-        "pctChange": 9650,
+        "label": "Improving since 2001-2025 (+11075%)",
+        "pctChange": 11075,
         "spanYears": "2001-2025"
       },
       "sequenceTrend": {
         "status": "accelerating",
         "label": "Sequencing activity has notably picked up recently"
       },
-      "totalRecords": 1767,
+      "totalRecords": 1962,
       "totalSequences": 40225,
       "niOriginSequences": 0
     },
@@ -826,23 +826,23 @@
       "category": "Mammals",
       "shortTermTrend": {
         "status": "notable_increase",
-        "label": "Up 146% vs the 5-year average",
-        "pctChange": 146,
+        "label": "Up 135% vs the 5-year average",
+        "pctChange": 135,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 61,
-        "currentYearToDateCount": 25
+        "latestCompleteYearCount": 64,
+        "currentYearToDateCount": 38
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1950-2025 (+645%)",
-        "pctChange": 645,
+        "label": "Improving since 1950-2025 (+682%)",
+        "pctChange": 682,
         "spanYears": "1950-2025"
       },
       "sequenceTrend": {
         "status": "steady",
         "label": "Sequencing activity continuing at a steady pace"
       },
-      "totalRecords": 2828,
+      "totalRecords": 2856,
       "totalSequences": 68002,
       "niOriginSequences": 0
     },
@@ -854,20 +854,20 @@
         "label": "Down 32% vs the 5-year average",
         "pctChange": -32,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 251,
-        "currentYearToDateCount": 12
+        "latestCompleteYearCount": 253,
+        "currentYearToDateCount": 14
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1908-2025 (+7457%)",
-        "pctChange": 7457,
+        "label": "Improving since 1908-2025 (+7486%)",
+        "pctChange": 7486,
         "spanYears": "1908-2025"
       },
       "sequenceTrend": {
         "status": "accelerating",
         "label": "Sequencing activity has notably picked up recently"
       },
-      "totalRecords": 3147,
+      "totalRecords": 3152,
       "totalSequences": 254591,
       "niOriginSequences": 0
     },
@@ -876,23 +876,23 @@
       "category": "Amphibians",
       "shortTermTrend": {
         "status": "notable_increase",
-        "label": "Up 88% vs the 5-year average",
-        "pctChange": 88,
+        "label": "Up 93% vs the 5-year average",
+        "pctChange": 93,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 166,
-        "currentYearToDateCount": 119
+        "latestCompleteYearCount": 175,
+        "currentYearToDateCount": 201
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1856-2025 (+8967%)",
-        "pctChange": 8967,
+        "label": "Improving since 1856-2025 (+9500%)",
+        "pctChange": 9500,
         "spanYears": "1856-2025"
       },
       "sequenceTrend": {
         "status": "steady",
         "label": "Sequencing activity continuing at a steady pace"
       },
-      "totalRecords": 1371,
+      "totalRecords": 1476,
       "totalSequences": 55001,
       "niOriginSequences": 0
     },
@@ -902,22 +902,22 @@
       "shortTermTrend": {
         "status": "stable",
         "label": "Broadly stable vs recent years",
-        "pctChange": 37,
+        "pctChange": 47,
         "latestCompleteYear": "2025",
-        "latestCompleteYearCount": 44,
-        "currentYearToDateCount": 30
+        "latestCompleteYearCount": 48,
+        "currentYearToDateCount": 53
       },
       "longTermTrend": {
         "status": "improving",
-        "label": "Improving since 1856-2025 (+1420%)",
-        "pctChange": 1420,
+        "label": "Improving since 1856-2025 (+1520%)",
+        "pctChange": 1520,
         "spanYears": "1856-2025"
       },
       "sequenceTrend": {
         "status": "steady",
         "label": "Sequencing activity continuing at a steady pace"
       },
-      "totalRecords": 472,
+      "totalRecords": 501,
       "totalSequences": 81343,
       "niOriginSequences": 0
     }

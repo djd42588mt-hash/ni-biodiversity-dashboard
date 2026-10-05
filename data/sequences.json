@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T09:22:46Z",
+  "generatedAt": "2026-10-05T10:01:27Z",
   "species": {
     "Apis mellifera": {
       "totalSequences": 398805,
@@ -92,7 +92,7 @@
       "error": null
     },
     "Varroa destructor": {
-      "totalSequences": 59422,
+      "totalSequences": 59425,
       "byYear": {
         "2016": 174,
         "2017": 22394,
@@ -104,7 +104,7 @@
         "2023": 385,
         "2024": 37,
         "2025": 23,
-        "2026": 34932
+        "2026": 34935
       },
       "niOriginTotal": 0,
       "error": null
@@ -146,7 +146,7 @@
       "error": null
     },
     "Anoplophora glabripennis": {
-      "totalSequences": 46486,
+      "totalSequences": 46506,
       "byYear": {
         "2016": 17569,
         "2017": 4983,
@@ -158,7 +158,7 @@
         "2023": 0,
         "2024": 0,
         "2025": 12,
-        "2026": 38
+        "2026": 58
       },
       "niOriginTotal": 0,
       "error": null
@@ -236,7 +236,7 @@
       "error": null
     },
     "Xylella fastidiosa": {
-      "totalSequences": 35516,
+      "totalSequences": 35864,
       "byYear": {
         "2016": 2112,
         "2017": 94,
@@ -248,7 +248,7 @@
         "2023": 10139,
         "2024": 295,
         "2025": 66,
-        "2026": 163
+        "2026": 511
       },
       "niOriginTotal": 0,
       "error": null
