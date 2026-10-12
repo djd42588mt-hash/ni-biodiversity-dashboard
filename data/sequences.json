@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-05T10:01:27Z",
+  "generatedAt": "2026-10-12T10:14:21Z",
   "species": {
     "Apis mellifera": {
-      "totalSequences": 398805,
+      "totalSequences": 398808,
       "byYear": {
         "2016": 4993,
         "2017": 649,
@@ -14,7 +14,7 @@
         "2023": 1050,
         "2024": 2170,
         "2025": 1236,
-        "2026": 594
+        "2026": 597
       },
       "niOriginTotal": 1,
       "error": null
@@ -218,7 +218,7 @@
       "error": null
     },
     "Melissococcus plutonius": {
-      "totalSequences": 8086,
+      "totalSequences": 8088,
       "byYear": {
         "2016": 6,
         "2017": 0,
@@ -230,13 +230,13 @@
         "2023": 9,
         "2024": 0,
         "2025": 6962,
-        "2026": 48
+        "2026": 50
       },
       "niOriginTotal": 0,
       "error": null
     },
     "Xylella fastidiosa": {
-      "totalSequences": 35864,
+      "totalSequences": 35867,
       "byYear": {
         "2016": 2112,
         "2017": 94,
@@ -248,7 +248,7 @@
         "2023": 10139,
         "2024": 295,
         "2025": 66,
-        "2026": 511
+        "2026": 514
       },
       "niOriginTotal": 0,
       "error": null
@@ -326,7 +326,7 @@
       "error": null
     },
     "Numenius arquata": {
-      "totalSequences": 27939,
+      "totalSequences": 27941,
       "byYear": {
         "2016": 0,
         "2017": 1,
@@ -336,9 +336,9 @@
         "2021": 1,
         "2022": 0,
         "2023": 0,
-        "2024": 44,
+        "2024": 2,
         "2025": 27693,
-        "2026": 2
+        "2026": 46
       },
       "niOriginTotal": 0,
       "error": null
@@ -506,7 +506,7 @@
       "error": null
     },
     "Erinaceus europaeus": {
-      "totalSequences": 254591,
+      "totalSequences": 254637,
       "byYear": {
         "2016": 4490,
         "2017": 21,
@@ -518,7 +518,7 @@
         "2023": 46349,
         "2024": 31,
         "2025": 6,
-        "2026": 5
+        "2026": 51
       },
       "niOriginTotal": 0,
       "error": null
