@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-12T10:14:21Z",
+  "generatedAt": "2026-10-19T08:30:29Z",
   "species": {
     "Apis mellifera": {
-      "totalSequences": 398808,
+      "totalSequences": 398812,
       "byYear": {
         "2016": 4993,
         "2017": 649,
@@ -14,13 +14,13 @@
         "2023": 1050,
         "2024": 2170,
         "2025": 1236,
-        "2026": 597
+        "2026": 601
       },
       "niOriginTotal": 1,
       "error": null
     },
     "Bombus terrestris": {
-      "totalSequences": 303497,
+      "totalSequences": 303519,
       "byYear": {
         "2016": 64,
         "2017": 3105,
@@ -32,13 +32,13 @@
         "2023": 18,
         "2024": 39,
         "2025": 192,
-        "2026": 682
+        "2026": 704
       },
       "niOriginTotal": 0,
       "error": null
     },
     "Bombus pascuorum": {
-      "totalSequences": 25482,
+      "totalSequences": 25492,
       "byYear": {
         "2016": 15,
         "2017": 2,
@@ -50,13 +50,13 @@
         "2023": 25086,
         "2024": 22,
         "2025": 13,
-        "2026": 8
+        "2026": 18
       },
       "niOriginTotal": 0,
       "error": null
     },
     "Bombus lucorum": {
-      "totalSequences": 1105,
+      "totalSequences": 1148,
       "byYear": {
         "2016": 20,
         "2017": 10,
@@ -68,13 +68,13 @@
         "2023": 206,
         "2024": 20,
         "2025": 77,
-        "2026": 46
+        "2026": 89
       },
       "niOriginTotal": 0,
       "error": null
     },
     "Bombus lapidarius": {
-      "totalSequences": 1464,
+      "totalSequences": 1476,
       "byYear": {
         "2016": 44,
         "2017": 6,
@@ -86,7 +86,7 @@
         "2023": 2,
         "2024": 31,
         "2025": 17,
-        "2026": 4
+        "2026": 16
       },
       "niOriginTotal": 0,
       "error": null
@@ -272,7 +272,7 @@
       "error": null
     },
     "Phytophthora ramorum": {
-      "totalSequences": 28450,
+      "totalSequences": 28451,
       "byYear": {
         "2016": 4,
         "2017": 5021,
@@ -284,7 +284,7 @@
         "2023": 7,
         "2024": 15554,
         "2025": 195,
-        "2026": 146
+        "2026": 147
       },
       "niOriginTotal": 7,
       "error": null
@@ -326,7 +326,7 @@
       "error": null
     },
     "Numenius arquata": {
-      "totalSequences": 27941,
+      "totalSequences": 27897,
       "byYear": {
         "2016": 0,
         "2017": 1,
@@ -338,7 +338,7 @@
         "2023": 0,
         "2024": 2,
         "2025": 27693,
-        "2026": 46
+        "2026": 2
       },
       "niOriginTotal": 0,
       "error": null
@@ -380,7 +380,7 @@
       "error": null
     },
     "Salmo salar": {
-      "totalSequences": 1050870,
+      "totalSequences": 1050876,
       "byYear": {
         "2016": 70,
         "2017": 74,
@@ -392,7 +392,7 @@
         "2023": 146,
         "2024": 353,
         "2025": 231,
-        "2026": 51188
+        "2026": 51194
       },
       "niOriginTotal": 0,
       "error": null
