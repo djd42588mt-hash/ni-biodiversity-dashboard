@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-19T08:30:29Z",
+  "generatedAt": "2026-10-26T08:32:02Z",
   "species": {
     "Apis mellifera": {
-      "totalSequences": 398812,
+      "totalSequences": 398818,
       "byYear": {
         "2016": 4993,
         "2017": 649,
@@ -14,7 +14,7 @@
         "2023": 1050,
         "2024": 2170,
         "2025": 1236,
-        "2026": 601
+        "2026": 607
       },
       "niOriginTotal": 1,
       "error": null
@@ -92,7 +92,7 @@
       "error": null
     },
     "Varroa destructor": {
-      "totalSequences": 59425,
+      "totalSequences": 59430,
       "byYear": {
         "2016": 174,
         "2017": 22394,
@@ -104,7 +104,7 @@
         "2023": 385,
         "2024": 37,
         "2025": 23,
-        "2026": 34935
+        "2026": 34940
       },
       "niOriginTotal": 0,
       "error": null
@@ -128,7 +128,7 @@
       "error": null
     },
     "Ips typographus": {
-      "totalSequences": 44189,
+      "totalSequences": 44190,
       "byYear": {
         "2016": 0,
         "2017": 0,
@@ -140,7 +140,7 @@
         "2023": 7,
         "2024": 4,
         "2025": 0,
-        "2026": 29064
+        "2026": 29065
       },
       "niOriginTotal": 0,
       "error": null
@@ -200,7 +200,7 @@
       "error": null
     },
     "Paenibacillus larvae": {
-      "totalSequences": 15031,
+      "totalSequences": 15033,
       "byYear": {
         "2016": 55,
         "2017": 741,
@@ -212,7 +212,7 @@
         "2023": 3855,
         "2024": 1977,
         "2025": 1869,
-        "2026": 129
+        "2026": 131
       },
       "niOriginTotal": 0,
       "error": null
@@ -326,7 +326,7 @@
       "error": null
     },
     "Numenius arquata": {
-      "totalSequences": 27897,
+      "totalSequences": 27941,
       "byYear": {
         "2016": 0,
         "2017": 1,
@@ -336,7 +336,7 @@
         "2021": 1,
         "2022": 0,
         "2023": 0,
-        "2024": 2,
+        "2024": 46,
         "2025": 27693,
         "2026": 2
       },
