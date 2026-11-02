@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-26T08:32:02Z",
+  "generatedAt": "2026-11-02T10:33:21Z",
   "species": {
     "Apis mellifera": {
-      "totalSequences": 398818,
+      "totalSequences": 398837,
       "byYear": {
         "2016": 4993,
         "2017": 649,
@@ -14,7 +14,7 @@
         "2023": 1050,
         "2024": 2170,
         "2025": 1236,
-        "2026": 607
+        "2026": 626
       },
       "niOriginTotal": 1,
       "error": null
@@ -200,7 +200,7 @@
       "error": null
     },
     "Paenibacillus larvae": {
-      "totalSequences": 15033,
+      "totalSequences": 15035,
       "byYear": {
         "2016": 55,
         "2017": 741,
@@ -212,7 +212,7 @@
         "2023": 3855,
         "2024": 1977,
         "2025": 1869,
-        "2026": 131
+        "2026": 133
       },
       "niOriginTotal": 0,
       "error": null
@@ -326,7 +326,7 @@
       "error": null
     },
     "Numenius arquata": {
-      "totalSequences": 27941,
+      "totalSequences": 27985,
       "byYear": {
         "2016": 0,
         "2017": 1,
@@ -338,7 +338,7 @@
         "2023": 0,
         "2024": 46,
         "2025": 27693,
-        "2026": 2
+        "2026": 46
       },
       "niOriginTotal": 0,
       "error": null
